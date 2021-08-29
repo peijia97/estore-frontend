@@ -1,10 +1,17 @@
 import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, ListItem, Divider, List, Grid } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import {
+  useMediaQuery,
+  Typography,
+  ListItem,
+  List,
+  Grid
+} from "@material-ui/core";
+import { Image } from "components/atoms";
 import { CardBase } from "components/organisms";
-
+import { CARD_FEATURES } from "data";
 const useStyles = makeStyles(theme => ({
   root: {
     height: "100%",
@@ -12,7 +19,30 @@ const useStyles = makeStyles(theme => ({
   },
   featureCheck: {
     marginRight: theme.spacing(1)
-  }
+  },
+  "card-features": {
+    borderRadius: 50,
+    boxShadow: "3px 3px 20px #0000000F"
+  },
+  "card-features__title": {
+    textAlign: "center",
+    fontWeight: 400,
+    marginBottom: "3rem"
+  },
+  "card-features__innerGrid": {
+    padding: "0 2rem"
+  },
+  title: {
+    lineHeight: "28px",
+    marginBottom: "16px"
+  },
+  subtitle: {
+    fontSize: "0.95rem",
+    lineHeight: "25px"
+  },
+  featureLinksList: {},
+  listItem: { padding: 0 },
+  listItemText: { fontSize: "1.125rem", marginRight: "0.5rem" }
 }));
 
 /**
@@ -21,170 +51,91 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props
  */
 const CardFeatures = props => {
-  const {
-    title,
-    subtitle,
-    priceComponent,
-    featureCheckComponent,
-    features,
-    cta,
-    disclaimer,
-    className,
-    titleProps,
-    subtitleProps,
-    disclaimerProps,
-    featureTitleProps,
-    ...rest
-  } = props;
+  const { className, ...rest } = props;
 
+  const theme = useTheme();
   const classes = useStyles();
+
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true
+  });
 
   return (
     <CardBase
-      className={clsx("card-pricing-standard", classes.root, className)}
+      className={clsx(classes["card-features"], classes.root, className)}
       align="left"
       {...rest}
     >
-      <Grid container spacing={2} className="card-pricing-standard__wrapper">
-        <Grid item xs={12} className="card-pricing-standard__headline">
+      <Grid container spacing={2} className="card-features__wrapper">
+        <Grid item xs={12} className="card-features__headline">
           <Typography
-            variant="h5"
+            variant="h3"
+            color="primary"
             gutterBottom
-            className="card-pricing-standard__title"
-            {...titleProps}
+            className={classes["card-features__title"]}
           >
-            {title}
+            FEATURES LOREM IPSUM
           </Typography>
-          {subtitle && (
-            <Typography
-              variant="subtitle1"
-              color="textSecondary"
-              className="card-pricing-standard__subtitle"
-              {...subtitleProps}
-            >
-              {subtitle}
-            </Typography>
-          )}
-        </Grid>
-        <Grid item xs={12} className="card-pricing-standard__divider-container">
-          <Divider className="card-pricing-standard__divider" />
-        </Grid>
-        <Grid item xs={12} className="card-pricing-standard__content">
-          {priceComponent}
-        </Grid>
-        {features && (
-          <Grid item xs={12} className="card-pricing-standard__feature-wrapper">
-            <List className="card-pricing-standard__feature-list">
-              {features.map((item, index) => (
-                <ListItem
-                  key={index}
-                  disableGutters
-                  className="card-pricing-standard__feature-list-item"
-                >
-                  {featureCheckComponent && (
-                    <div
-                      className={clsx(
-                        "card-pricing-standard__feature-check",
-                        classes.featureCheck
-                      )}
-                    >
-                      {featureCheckComponent}
-                    </div>
-                  )}
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    className="card-pricing-standard__feature-title"
-                    {...featureTitleProps}
-                  >
-                    {item}
-                  </Typography>
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-        )}
-        <Grid item xs={12} className="card-pricing-standard__cta-wrapper">
-          {cta}
-        </Grid>
-        {disclaimer && (
           <Grid
-            item
-            xs={12}
-            className="card-pricing-standard__disclaimer-wrapper"
+            container
+            spacing={isMd ? 10 : 5}
+            className={clsx(isMd && classes["card-features__innerGrid"])}
           >
-            <Typography
-              variant="caption"
-              component="p"
-              align="center"
-              className="card-pricing-standard__disclaimer-title"
-              {...disclaimerProps}
-            >
-              {disclaimer}
-            </Typography>
+            {CARD_FEATURES.map(feature => (
+              <Grid item xs={12} md={4}>
+                <Image
+                  className={classes.iconImage}
+                  src={feature.icon}
+                  alt={feature.title}
+                  lazy={true}
+                />
+
+                <div className={classes.title}>
+                  <Typography variant="h5" color="primary" component="span">
+                    {feature.title1}
+                  </Typography>{" "}
+                  <Typography variant="h5" component="span">
+                    {feature.title2}
+                  </Typography>
+                </div>
+                <Typography variant="body1" className={classes.subtitle}>
+                  {feature.subtitle}
+                </Typography>
+
+                <List className={classes.featureLinksList}>
+                  {feature.links.map(link => (
+                    <ListItem className={classes.listItem}>
+                      <Typography
+                        variant="overline"
+                        color="secondary"
+                        className={classes.listItemText}
+                        component="a"
+                        href={link.url}
+                      >
+                        {link.label}
+                      </Typography>
+                      <Image
+                        src="/images/icons/arrow-right-green.svg"
+                        alt="arrow-right"
+                        lazy={true}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
+            ))}
           </Grid>
-        )}
+        </Grid>
       </Grid>
     </CardBase>
   );
-};
-
-CardFeatures.defaultProps = {
-  titleProps: {},
-  subtitleProps: {},
-  disclaimerProps: {},
-  featureTitleProps: {}
 };
 
 CardFeatures.propTypes = {
   /**
    *  External classes
    */
-  className: PropTypes.string,
-  /**
-   * Title of the pricing card
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   *  Subtitle of the pricing card
-   */
-  subtitle: PropTypes.string,
-  /**
-   * The pricing component of the pricing card
-   */
-  priceComponent: PropTypes.node.isRequired,
-  /**
-   * The features check component of the pricing card
-   */
-  featureCheckComponent: PropTypes.node,
-  /**
-   * Features array of the pricing card
-   */
-  features: PropTypes.array,
-  /**
-   *  CTA button of the pricing card
-   */
-  cta: PropTypes.node.isRequired,
-  /**
-   * Diclaimer of the pricing card
-   */
-  disclaimer: PropTypes.string,
-  /**
-   * Additional props to pass to the title Typography component
-   */
-  titleProps: PropTypes.object,
-  /**
-   * Additional props to pass to the subtitle Typography component
-   */
-  subtitleProps: PropTypes.object,
-  /**
-   * Additional props to pass to the disclaimer Typography component
-   */
-  disclaimerProps: PropTypes.object,
-  /**
-   * Additional props to pass to the feature title Typography component
-   */
-  featureTitleProps: PropTypes.object
+  className: PropTypes.string
 };
 
 export default CardFeatures;

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, ListItem, Divider, List, Grid } from "@material-ui/core";
 import { CardBase } from "components/organisms";
+import { GRID_FEATURES } from "data";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,16 +42,16 @@ const GridFeatures = props => {
 
   return (
     <CardBase
-      className={clsx("card-pricing-standard", classes.root, className)}
+      className={clsx("grid-features", classes.root, className)}
       align="left"
       {...rest}
     >
-      <Grid container spacing={2} className="card-pricing-standard__wrapper">
-        <Grid item xs={12} className="card-pricing-standard__headline">
+      <Grid container spacing={2} className="grid-features__wrapper">
+        <Grid item xs={12} className="grid-features__headline">
           <Typography
             variant="h5"
             gutterBottom
-            className="card-pricing-standard__title"
+            className="grid-features__title"
             {...titleProps}
           >
             {title}
@@ -59,32 +60,32 @@ const GridFeatures = props => {
             <Typography
               variant="subtitle1"
               color="textSecondary"
-              className="card-pricing-standard__subtitle"
+              className="grid-features__subtitle"
               {...subtitleProps}
             >
               {subtitle}
             </Typography>
           )}
         </Grid>
-        <Grid item xs={12} className="card-pricing-standard__divider-container">
-          <Divider className="card-pricing-standard__divider" />
+        <Grid item xs={12} className="grid-features__divider-container">
+          <Divider className="grid-features__divider" />
         </Grid>
-        <Grid item xs={12} className="card-pricing-standard__content">
+        <Grid item xs={12} className="grid-features__content">
           {priceComponent}
         </Grid>
         {features && (
-          <Grid item xs={12} className="card-pricing-standard__feature-wrapper">
-            <List className="card-pricing-standard__feature-list">
+          <Grid item xs={12} className="grid-features__feature-wrapper">
+            <List className="grid-features__feature-list">
               {features.map((item, index) => (
                 <ListItem
                   key={index}
                   disableGutters
-                  className="card-pricing-standard__feature-list-item"
+                  className="grid-features__feature-list-item"
                 >
                   {featureCheckComponent && (
                     <div
                       className={clsx(
-                        "card-pricing-standard__feature-check",
+                        "grid-features__feature-check",
                         classes.featureCheck
                       )}
                     >
@@ -94,7 +95,7 @@ const GridFeatures = props => {
                   <Typography
                     variant="h6"
                     noWrap
-                    className="card-pricing-standard__feature-title"
+                    className="grid-features__feature-title"
                     {...featureTitleProps}
                   >
                     {item}
@@ -104,20 +105,16 @@ const GridFeatures = props => {
             </List>
           </Grid>
         )}
-        <Grid item xs={12} className="card-pricing-standard__cta-wrapper">
+        <Grid item xs={12} className="grid-features__cta-wrapper">
           {cta}
         </Grid>
         {disclaimer && (
-          <Grid
-            item
-            xs={12}
-            className="card-pricing-standard__disclaimer-wrapper"
-          >
+          <Grid item xs={12} className="grid-features__disclaimer-wrapper">
             <Typography
               variant="caption"
               component="p"
               align="center"
-              className="card-pricing-standard__disclaimer-title"
+              className="grid-features__disclaimer-title"
               {...disclaimerProps}
             >
               {disclaimer}

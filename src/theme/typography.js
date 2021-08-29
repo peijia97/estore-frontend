@@ -28,13 +28,11 @@ const typography = {
   },
   h5: {
     color: palette.text.primary,
-    fontWeight: 900,
     fontSize: "20px",
     lineHeight: 1.4
   },
   h6: {
     color: palette.text.primary,
-    fontWeight: 900,
     fontSize: "18px",
     lineHeight: 1.45,
     fontFamily: "Roboto"
@@ -52,7 +50,7 @@ const typography = {
   },
   body1: {
     color: palette.text.primary,
-    fontSize: "14px",
+    fontSize: "15px",
     lineHeight: 1.3,
     fontFamily: "Roboto"
   },
@@ -74,8 +72,9 @@ const typography = {
   },
   overline: {
     fontSize: "13px",
-    textTransform: "uppercase",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    textTransform: "capitalize",
+    fontFamily: "Roboto"
   }
 };
 
