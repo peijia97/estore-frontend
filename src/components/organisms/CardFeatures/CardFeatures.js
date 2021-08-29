@@ -17,9 +17,6 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     width: "100%"
   },
-  featureCheck: {
-    marginRight: theme.spacing(1)
-  },
   "card-features": {
     borderRadius: 50,
     boxShadow: "3px 3px 20px #0000000F"

@@ -16,9 +16,6 @@ const useStyles = makeStyles(theme => ({
       paddingTop: theme.spacing(5)
     }
   },
-  sectionNoPaddingTop: {
-    paddingTop: 0
-  },
   dividerPrimary: {
     background: theme.palette.primary.main,
     height: "0.25rem"
@@ -38,7 +35,7 @@ const Home = () => {
       <Section className={classes.pagePaddingTop}>
         <Hero />
       </Section>
-      <Section className={classes.sectionNoPaddingTop}>
+      <Section disablePadding>
         <Hub />
       </Section>
       <Section>

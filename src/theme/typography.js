@@ -28,11 +28,13 @@ const typography = {
   },
   h5: {
     color: palette.text.primary,
+    fontWeight: 900,
     fontSize: "20px",
     lineHeight: 1.4
   },
   h6: {
     color: palette.text.primary,
+    fontWeight: 900,
     fontSize: "18px",
     lineHeight: 1.45,
     fontFamily: "Roboto"

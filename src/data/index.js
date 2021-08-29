@@ -62,7 +62,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -72,7 +72,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -82,7 +82,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -92,7 +92,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -102,7 +102,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -112,7 +112,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }
@@ -122,7 +122,7 @@ export const GRID_FEATURES = [
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    links: {
+    link: {
       label: "Lorem ipsum",
       url: "#"
     }

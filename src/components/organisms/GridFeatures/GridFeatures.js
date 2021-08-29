@@ -1,9 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, ListItem, Divider, List, Grid } from "@material-ui/core";
-import { CardBase } from "components/organisms";
+import { useMediaQuery, Typography, Grid } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Image } from "components/atoms";
 import { GRID_FEATURES } from "data";
 
 const useStyles = makeStyles(theme => ({
@@ -11,9 +11,38 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     width: "100%"
   },
-  featureCheck: {
-    marginRight: theme.spacing(1)
-  }
+  "grid-features": {
+    padding: "0 5rem"
+  },
+  "grid-features__headline": {
+    placeSelf: "center",
+    display: "flex",
+    alignItems: "flexStart",
+    flexDirection: "column"
+  },
+  "grid-features__title": {
+    fontWeight: 400,
+    width: "60%"
+  },
+  "grid-features__subtitle": {
+    fontSize: "1.5rem"
+  },
+  "grid-features__featureItem": { textAlign: "center" },
+  "grid-features__featureTitle": { fontWeight: 400, marginBottom: "1rem" },
+  "grid-features__featureSubtitle": {
+    fontSize: "1rem",
+    width: "60%",
+    margin: "auto",
+    lineHeight: "25px",
+    marginBottom: "1rem"
+  },
+  "grid-features__featureLink": {
+    color: theme.palette.grey[800],
+    marginRight: "0.5rem",
+    fontSize: "1.125rem",
+    fontWeight: "900"
+  },
+  "grid-features__featureImage": { height: "20rem" }
 }));
 
 /**
@@ -22,166 +51,97 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props
  */
 const GridFeatures = props => {
-  const {
-    title,
-    subtitle,
-    priceComponent,
-    featureCheckComponent,
-    features,
-    cta,
-    disclaimer,
-    className,
-    titleProps,
-    subtitleProps,
-    disclaimerProps,
-    featureTitleProps,
-    ...rest
-  } = props;
+  const { className, ...rest } = props;
 
+  const theme = useTheme();
   const classes = useStyles();
 
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true
+  });
+
   return (
-    <CardBase
-      className={clsx("grid-features", classes.root, className)}
-      align="left"
+    <Grid
+      container
+      spacing={isMd ? 10 : 5}
+      className={clsx(
+        isMd && classes["grid-features"],
+        classes.root,
+        className
+      )}
       {...rest}
     >
-      <Grid container spacing={2} className="grid-features__wrapper">
-        <Grid item xs={12} className="grid-features__headline">
+      <Grid item xs={12} md={6} className={classes["grid-features__headline"]}>
+        <Typography
+          variant="h3"
+          color="primary"
+          gutterBottom
+          className={classes["grid-features__title"]}
+        >
+          LOREM IPSUM DOLOR SIT
+        </Typography>
+        <Typography
+          variant="h6"
+          color="textSecondary"
+          className={classes["grid-features__subtitle"]}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Typography>
+      </Grid>
+      {GRID_FEATURES.map(feature => (
+        <Grid
+          item
+          xs={12}
+          md={6}
+          className={classes["grid-features__featureItem"]}
+        >
+          <Image
+            className={classes["grid-features__featureImage"]}
+            src={feature.img}
+            alt={feature.title}
+            lazy={true}
+          />
           <Typography
             variant="h5"
-            gutterBottom
-            className="grid-features__title"
-            {...titleProps}
+            color="textSecondary"
+            className={classes["grid-features__featureTitle"]}
           >
-            {title}
+            {feature.title}
           </Typography>
-          {subtitle && (
+          <Typography
+            variant="h6"
+            color="textSecondary"
+            className={classes["grid-features__featureSubtitle"]}
+          >
+            {feature.subtitle}
+          </Typography>
+          <span>
             <Typography
-              variant="subtitle1"
+              variant="body1"
               color="textSecondary"
-              className="grid-features__subtitle"
-              {...subtitleProps}
+              className={classes["grid-features__featureLink"]}
+              component="a"
+              href={feature.link.url}
             >
-              {subtitle}
+              {feature.link.label}
             </Typography>
-          )}
+            <Image
+              src="/images/icons/arrow-right-green.svg"
+              alt="arrow-right"
+              lazy={true}
+            />
+          </span>
         </Grid>
-        <Grid item xs={12} className="grid-features__divider-container">
-          <Divider className="grid-features__divider" />
-        </Grid>
-        <Grid item xs={12} className="grid-features__content">
-          {priceComponent}
-        </Grid>
-        {features && (
-          <Grid item xs={12} className="grid-features__feature-wrapper">
-            <List className="grid-features__feature-list">
-              {features.map((item, index) => (
-                <ListItem
-                  key={index}
-                  disableGutters
-                  className="grid-features__feature-list-item"
-                >
-                  {featureCheckComponent && (
-                    <div
-                      className={clsx(
-                        "grid-features__feature-check",
-                        classes.featureCheck
-                      )}
-                    >
-                      {featureCheckComponent}
-                    </div>
-                  )}
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    className="grid-features__feature-title"
-                    {...featureTitleProps}
-                  >
-                    {item}
-                  </Typography>
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-        )}
-        <Grid item xs={12} className="grid-features__cta-wrapper">
-          {cta}
-        </Grid>
-        {disclaimer && (
-          <Grid item xs={12} className="grid-features__disclaimer-wrapper">
-            <Typography
-              variant="caption"
-              component="p"
-              align="center"
-              className="grid-features__disclaimer-title"
-              {...disclaimerProps}
-            >
-              {disclaimer}
-            </Typography>
-          </Grid>
-        )}
-      </Grid>
-    </CardBase>
+      ))}
+    </Grid>
   );
-};
-
-GridFeatures.defaultProps = {
-  titleProps: {},
-  subtitleProps: {},
-  disclaimerProps: {},
-  featureTitleProps: {}
 };
 
 GridFeatures.propTypes = {
   /**
    *  External classes
    */
-  className: PropTypes.string,
-  /**
-   * Title of the pricing card
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   *  Subtitle of the pricing card
-   */
-  subtitle: PropTypes.string,
-  /**
-   * The pricing component of the pricing card
-   */
-  priceComponent: PropTypes.node.isRequired,
-  /**
-   * The features check component of the pricing card
-   */
-  featureCheckComponent: PropTypes.node,
-  /**
-   * Features array of the pricing card
-   */
-  features: PropTypes.array,
-  /**
-   *  CTA button of the pricing card
-   */
-  cta: PropTypes.node.isRequired,
-  /**
-   * Diclaimer of the pricing card
-   */
-  disclaimer: PropTypes.string,
-  /**
-   * Additional props to pass to the title Typography component
-   */
-  titleProps: PropTypes.object,
-  /**
-   * Additional props to pass to the subtitle Typography component
-   */
-  subtitleProps: PropTypes.object,
-  /**
-   * Additional props to pass to the disclaimer Typography component
-   */
-  disclaimerProps: PropTypes.object,
-  /**
-   * Additional props to pass to the feature title Typography component
-   */
-  featureTitleProps: PropTypes.object
+  className: PropTypes.string
 };
 
 export default GridFeatures;
