@@ -7,7 +7,7 @@ const fontFamily = [
     src: `
       local('ConcertOne'),
       local('ConcertOne-Regular'),
-      url(${process.env.PUBLIC_URL}/fonts/ConcertOne-Regular.ttf) format('truetype')
+      url(/fonts/ConcertOne-Regular.ttf) format('truetype')
     `
   },
   {
@@ -18,7 +18,7 @@ const fontFamily = [
     src: `
       local('Roboto'),
       local('Roboto-Regular'),
-      url(${process.env.PUBLIC_URL}/fonts/Roboto-Regular.ttf) format('truetype')
+      url(/fonts/Roboto-Regular.ttf) format('truetype')
     `
   },
   {
@@ -28,7 +28,7 @@ const fontFamily = [
     fontWeight: 400,
     src: `
       local('Roboto-Light'),
-      url(${process.env.PUBLIC_URL}/fonts/Roboto-Light.ttf) format('truetype')
+      url(/fonts/Roboto-Light.ttf) format('truetype')
     `
   }
 ];

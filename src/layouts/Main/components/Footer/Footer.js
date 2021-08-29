@@ -1,13 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { Divider } from "@material-ui/core";
+import { Divider, Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { IconButton, List, ListItem } from "@material-ui/core";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import PinterestIcon from "@material-ui/icons/Pinterest";
+import { Typography, List, ListItem } from "@material-ui/core";
 
 import { Image } from "components/atoms";
 
@@ -22,11 +18,15 @@ const useStyles = makeStyles(theme => ({
   footerContainer: {
     maxWidth: theme.layout.contentWidth,
     width: "100%",
-    margin: "0 auto",
+    margin: "0 auto 3rem",
     padding: theme.spacing(0, 2)
   },
   logoContainerItem: {
     paddingTop: 0
+  },
+  listItem: {
+    paddingLeft: 0,
+    paddingRight: 0
   },
   logoContainer: {
     width: 120,
@@ -36,23 +36,19 @@ const useStyles = makeStyles(theme => ({
     width: "auto",
     height: "100%"
   },
-  socialIcon: {
-    padding: 0,
-    marginRight: theme.spacing(1),
-    color: "rgba(255,255,255,.6)",
-    "&:hover": {
-      background: "transparent"
-    },
-    "&:last-child": {
-      marginRight: 0
-    }
+  footerTitle: {
+    fontSize: "1rem"
   },
-  icon: {
-    fontSize: 24
+  iconImage: {
+    marginRight: "1rem"
+  },
+  footerLinks: {
+    textDecoration: "none"
   },
   divider: {
     background: theme.palette.grey[200],
-    height: "0.25rem"
+    height: "0.25rem",
+    marginBottom: "3rem"
   }
 }));
 
@@ -64,42 +60,201 @@ const Footer = props => {
   return (
     <div {...rest} className={clsx(classes.root, className)}>
       <div className={classes.footerContainer}>
-        <List disablePadding>
-          <ListItem disableGutters className={classes.logoContainerItem}>
-            <div className={classes.logoContainer}>
-              <a href="/" title="estore">
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={6} lg={3}>
+            <List disablePadding>
+              <ListItem disableGutters className={classes.logoContainerItem}>
+                <div className={classes.logoContainer}>
+                  <a href="/" title="estore">
+                    <Image
+                      className={classes.logoImage}
+                      src="/images/logos/logo.png"
+                      alt="estore-logo"
+                      lazy={false}
+                    />
+                  </a>
+                </div>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem Ipsum
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem Ipsum
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem Ipsum
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={2}>
+            <List disablePadding>
+              <ListItem disableGutters className={classes.logoContainerItem}>
+                <Typography variant="h6" className={classes.footerTitle}>
+                  Lorem
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={3}>
+            <List disablePadding>
+              <ListItem disableGutters className={classes.logoContainerItem}>
+                <Typography variant="h6" className={classes.footerTitle}>
+                  Lorem
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem ipsum dolor sit
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem ipsum dolor sit
+                </Typography>
+              </ListItem>
+              <ListItem className={classes.listItem}>
+                <Typography
+                  variant="body1"
+                  className={classes.footerLinks}
+                  component="a"
+                  href="#"
+                >
+                  Lorem ipsum dolor sit
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={4}>
+            <List disablePadding>
+              <ListItem disableGutters className={classes.logoContainerItem}>
+                <Typography variant="h6" className={classes.footerTitle}>
+                  Lorem
+                </Typography>
+              </ListItem>
+              <a href="/" title="facebook" className={classes.iconImage}>
                 <Image
-                  className={classes.logoImage}
-                  src="/images/logos/logo.png"
-                  alt="estore-logo"
-                  lazy={false}
+                  src="/images/icons/facebook-round.svg"
+                  alt="facebook"
+                  lazy={true}
                 />
               </a>
-            </div>
-          </ListItem>
-          <ListItem disableGutters>
-            <IconButton className={classes.socialIcon}>
-              <FacebookIcon className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.socialIcon}>
-              <InstagramIcon className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.socialIcon}>
-              <TwitterIcon className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.socialIcon}>
-              <PinterestIcon className={classes.icon} />
-            </IconButton>
-          </ListItem>
-        </List>
+              <a href="/" title="instagram" className={classes.iconImage}>
+                <Image
+                  src="/images/icons/instagram-round.svg"
+                  alt="instagram"
+                  lazy={true}
+                />
+              </a>
+              <a href="/" title="twitter" className={classes.iconImage}>
+                <Image
+                  src="/images/icons/twitter-round.svg"
+                  alt="twitter"
+                  lazy={true}
+                />
+              </a>
+              <a href="/" title="tiktok" className={classes.iconImage}>
+                <Image
+                  src="/images/icons/tiktok-round.svg"
+                  alt="tiktok"
+                  lazy={true}
+                />
+              </a>
+            </List>
+          </Grid>
+        </Grid>
       </div>
 
       <Divider className={classes.divider} />
 
       <div className={classes.footerContainer}>
-        <IconButton className={classes.socialIcon}>
-          <PinterestIcon className={classes.icon} />
-        </IconButton>
+        <Grid container spacing={5} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Typography variant="body1">
+              © 2021 copyright. All rights reserved.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              placeholder="Lorem Ipsum"
+              label="Lorem Ipsum"
+              variant="outlined"
+              size="medium"
+              name="emailAddress"
+              fullWidth
+              // helperText={
+              //   hasError('firstName') ? formState.errors.firstName[0] : null
+              // }
+              // error={hasError('firstName')}
+              // onChange={handleChange}
+              // type="firstName"
+              // value={formState.values.firstName || ''}
+            />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

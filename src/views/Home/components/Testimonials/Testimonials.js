@@ -23,15 +23,19 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "400",
     marginBottom: "1rem",
     padding: "0 10%",
-    textAlign: "center"
-  },
-  quotePaddingMd: {
-    padding: "0 30%"
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      padding: "0 30%"
+    }
   },
   author: { fontSize: "0.95rem", marginBottom: "3rem" },
   btnGroups: { textAlign: "center", width: "100%", marginBottom: "2rem" },
-  btnAction: { marginBottom: "1rem" },
-  btnActionMd: { marginRight: "1rem" },
+  btnAction: {
+    marginBottom: "1rem",
+    [theme.breakpoints.up("md")]: {
+      marginRight: "1rem"
+    }
+  },
   linkText: { fontWeight: "900", textDecoration: "none" },
   disclaimer: { width: "100%", textAlign: "center" }
 }));
@@ -75,11 +79,7 @@ const Testimonials = props => {
               LOREM IPSUM
             </Typography>
           </div>
-          <Typography
-            variant="h4"
-            className={clsx(classes.quote, isMd && classes.quotePaddingMd)}
-            component="p"
-          >
+          <Typography variant="h4" className={classes.quote} component="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor ”
           </Typography>
@@ -90,7 +90,7 @@ const Testimonials = props => {
         <div className={classes.btnGroups}>
           <Button
             variant="contained"
-            className={clsx(isMd ? classes.btnActionMd : classes.btnAction)}
+            className={classes.btnAction}
             color="secondary"
             size="large"
           >

@@ -28,10 +28,10 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "3rem"
   },
   "card-features__innerGrid": {
-    padding: "0 1rem"
-  },
-  "card-features__innerGridMd": {
-    padding: "0 2rem"
+    padding: "0 1rem",
+    [theme.breakpoints.up("md")]: {
+      padding: "0 2rem"
+    }
   },
   title: {
     lineHeight: "28px",
@@ -80,11 +80,7 @@ const CardFeatures = props => {
           <Grid
             container
             spacing={isMd ? 10 : 5}
-            className={clsx(
-              isMd
-                ? classes["card-features__innerGridMd"]
-                : classes["card-features__innerGrid"]
-            )}
+            className={classes["card-features__innerGrid"]}
           >
             {CARD_FEATURES.map(feature => (
               <Grid item xs={12} md={4}>
