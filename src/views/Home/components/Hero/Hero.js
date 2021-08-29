@@ -52,7 +52,7 @@ const Hero = props => {
             subtitle="Lorem ipsum dolor sit amet."
             ctaGroup={[
               <Button variant="contained" color="secondary" size="large">
-                Start now
+                Lorem
               </Button>,
               <Button
                 variant="outlined"

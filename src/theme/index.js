@@ -39,6 +39,9 @@ const theme = responsiveFontSizes(
         },
         outlinedSizeLarge: {
           padding: "0.6rem 2rem"
+        },
+        label: {
+          fontSize: "1.125rem"
         }
       },
       MuiTypography: typography

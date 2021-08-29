@@ -1,34 +1,50 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Button, colors } from "@material-ui/core";
-import { Icon } from "components/atoms";
-import { GridFeatures } from "components/organisms";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useMediaQuery, Grid, Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%"
   },
-  placementGrid: {
-    display: "flex"
+  openQuote: {
+    fontFamily: "Roboto",
+    fontWeight: "500"
   },
-  placementGridItemMiddle: {
-    margin: `0 ${theme.spacing(3)}px`
+  title: {
+    fontSize: "1.125rem",
+    marginBottom: "1rem"
   },
-  coverImage: {
-    boxShadow:
-      "25px 60px 125px -25px rgba(80,102,144,.1), 16px 40px 75px -40px rgba(0,0,0,.2)",
-    borderRadius: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: 500
-    }
-  }
+  quote: {
+    fontSize: "2.125rem",
+    fontFamily: "Roboto-Light",
+    lineHeight: "54px",
+    fontWeight: "400",
+    marginBottom: "1rem",
+    padding: "0 10%",
+    textAlign: "center"
+  },
+  quotePaddingMd: {
+    padding: "0 30%"
+  },
+  author: { fontSize: "0.95rem", marginBottom: "3rem" },
+  btnGroups: { textAlign: "center", width: "100%", marginBottom: "2rem" },
+  btnAction: { marginBottom: "1rem" },
+  btnActionMd: { marginRight: "1rem" },
+  linkText: { fontWeight: "900", textDecoration: "none" },
+  disclaimer: { width: "100%", textAlign: "center" }
 }));
 
 const Testimonials = props => {
   const { className, ...rest } = props;
+
+  const theme = useTheme();
   const classes = useStyles();
+
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true
+  });
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
@@ -41,44 +57,66 @@ const Testimonials = props => {
           xs={12}
           data-aos="fade-up"
         >
-          <GridFeatures
-            title="Extended License"
-            subtitle="A pay-once license, just for you"
-            priceComponent={
-              <div>
-                <Typography
-                  variant="h3"
-                  component="span"
-                  style={{ fontWeight: 900 }}
-                >
-                  $79
-                </Typography>
-                <Typography component="span" variant="subtitle1">
-                  / MO
-                </Typography>
-              </div>
-            }
-            features={[
-              "Rich, responsive landing pages",
-              "100+ styled components",
-              "Flexible, simple license",
-              "Speedy build tooling",
-              "6 months free support included"
-            ]}
-            featureCheckComponent={
-              <Icon
-                fontIconClass="far fa-check-circle"
-                fontIconColor={colors.indigo[500]}
-              />
-            }
-            cta={
-              <Button color="primary" variant="outlined" fullWidth size="large">
-                Subscribe now
-              </Button>
-            }
-            disclaimer="Fully featured 30-day free trial"
-          />
+          <div>
+            <Typography
+              variant="h3"
+              className={classes.openQuote}
+              color="secondary"
+              component="span"
+            >
+              “
+            </Typography>
+            <Typography
+              variant="h6"
+              className={classes.title}
+              color="secondary"
+              component="span"
+            >
+              LOREM IPSUM
+            </Typography>
+          </div>
+          <Typography
+            variant="h4"
+            className={clsx(classes.quote, isMd && classes.quotePaddingMd)}
+            component="p"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor ”
+          </Typography>
+          <Typography variant="body1" className={classes.author}>
+            Emely Stone, Founder, Kuala Lumpur
+          </Typography>
         </Grid>
+        <div className={classes.btnGroups}>
+          <Button
+            variant="contained"
+            className={clsx(isMd ? classes.btnActionMd : classes.btnAction)}
+            color="secondary"
+            size="large"
+          >
+            LOREM IPSUM DOLOR
+          </Button>
+          <Button variant="outlined" color="secondary" size="large">
+            LOREM IPSUM
+          </Button>
+        </div>
+        <div className={classes.disclaimer}>
+          <Typography variant="body1" component="span">
+            Lorem ipsum
+          </Typography>{" "}
+          <Typography
+            variant="body1"
+            component="a"
+            className={classes.linkText}
+            color="primary"
+            href="#"
+          >
+            DOLOR
+          </Typography>{" "}
+          <Typography variant="body1" component="span">
+            sit amet, est laborum.
+          </Typography>
+        </div>
       </Grid>
     </div>
   );

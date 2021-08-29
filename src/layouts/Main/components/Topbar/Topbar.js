@@ -1,7 +1,9 @@
 import React from "react";
+import clsx from "clsx";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
+  useMediaQuery,
   Toolbar,
   Hidden,
   List,
@@ -29,6 +31,9 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     margin: "0 auto",
     padding: theme.spacing(0, 2)
+  },
+  toolbarPadding: {
+    padding: "2rem 0"
   },
   listItem: {
     cursor: "pointer",
@@ -67,10 +72,19 @@ const useStyles = makeStyles(theme => ({
 const Topbar = props => {
   const { onSidebarOpen, ...rest } = props;
 
+  const theme = useTheme();
   const classes = useStyles();
 
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true
+  });
+
   return (
-    <Toolbar disableGutters className={classes.toolbar} {...rest}>
+    <Toolbar
+      disableGutters
+      className={clsx(classes.toolbar, isMd && classes.toolbarPadding)}
+      {...rest}
+    >
       <div className={classes.logoContainer}>
         <a href="/" title="estore">
           <Image
