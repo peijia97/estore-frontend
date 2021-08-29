@@ -43,7 +43,7 @@ const Topbar = props => {
         <a href="/" title="estore">
           <Image
             className={classes.logoImage}
-            src="/images/logos/logo.png"
+            src={`${process.env.PUBLIC_URL}/images/logos/logo.png`}
             alt="estore-logo"
             lazy={false}
           />

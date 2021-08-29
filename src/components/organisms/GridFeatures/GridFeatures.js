@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.125rem",
     fontWeight: "900"
   },
-  "grid-features__featureImage": { height: "20rem" }
+  "grid-features__featureImage": { height: "20rem", width: "auto" }
 }));
 
 /**
@@ -126,7 +126,7 @@ const GridFeatures = props => {
               {feature.link.label}
             </Typography>
             <Image
-              src="/images/icons/arrow-right-green.svg"
+              src={`${process.env.PUBLIC_URL}/images/icons/arrow-right-green.svg`}
               alt="arrow-right"
               lazy={true}
             />

@@ -68,7 +68,7 @@ const Footer = props => {
                   <a href="/" title="estore">
                     <Image
                       className={classes.logoImage}
-                      src="/images/logos/logo.png"
+                      src={`${process.env.PUBLIC_URL}/images/logos/logo.png`}
                       alt="estore-logo"
                       lazy={false}
                     />
@@ -197,28 +197,28 @@ const Footer = props => {
               </ListItem>
               <a href="/" title="facebook" className={classes.iconImage}>
                 <Image
-                  src="/images/icons/facebook-round.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icons/facebook-round.svg`}
                   alt="facebook"
                   lazy={true}
                 />
               </a>
               <a href="/" title="instagram" className={classes.iconImage}>
                 <Image
-                  src="/images/icons/instagram-round.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icons/instagram-round.svg`}
                   alt="instagram"
                   lazy={true}
                 />
               </a>
               <a href="/" title="twitter" className={classes.iconImage}>
                 <Image
-                  src="/images/icons/twitter-round.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icons/twitter-round.svg`}
                   alt="twitter"
                   lazy={true}
                 />
               </a>
               <a href="/" title="tiktok" className={classes.iconImage}>
                 <Image
-                  src="/images/icons/tiktok-round.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icons/tiktok-round.svg`}
                   alt="tiktok"
                   lazy={true}
                 />

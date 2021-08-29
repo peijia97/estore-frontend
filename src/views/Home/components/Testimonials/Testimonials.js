@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { useMediaQuery, Grid, Typography, Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,8 +31,10 @@ const useStyles = makeStyles(theme => ({
   author: { fontSize: "0.95rem", marginBottom: "3rem" },
   btnGroups: { textAlign: "center", width: "100%", marginBottom: "2rem" },
   btnAction: {
-    marginBottom: "1rem",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1rem"
+    },
+    [theme.breakpoints.up("sm")]: {
       marginRight: "1rem"
     }
   },
@@ -43,12 +45,7 @@ const useStyles = makeStyles(theme => ({
 const Testimonials = props => {
   const { className, ...rest } = props;
 
-  const theme = useTheme();
   const classes = useStyles();
-
-  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
-    defaultMatches: true
-  });
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>

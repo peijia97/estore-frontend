@@ -78,7 +78,7 @@ const Hero = props => {
           data-aos={"fade-up"}
         >
           <Image
-            src="/images/illustrations/hero.png"
+            src={`${process.env.PUBLIC_URL}/images/illustrations/hero.png`}
             alt="estore-hero"
             className={classes.image}
           />

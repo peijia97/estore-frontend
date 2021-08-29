@@ -116,7 +116,7 @@ const CardFeatures = props => {
                         {link.label}
                       </Typography>
                       <Image
-                        src="/images/icons/arrow-right-green.svg"
+                        src={`${process.env.PUBLIC_URL}/images/icons/arrow-right-green.svg`}
                         alt="arrow-right"
                         lazy={true}
                       />

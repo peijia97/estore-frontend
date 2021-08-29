@@ -1,6 +1,6 @@
 export const CARD_FEATURES = [
   {
-    icon: "/images/icons/devices-round.svg",
+    icon: `${process.env.PUBLIC_URL}/images/icons/devices-round.svg`,
     title1: "LOREM IPSUM",
     title2: "DOLOR SIT",
     subtitle:
@@ -21,7 +21,7 @@ export const CARD_FEATURES = [
     ]
   },
   {
-    icon: "/images/icons/settings-round.svg",
+    icon: `${process.env.PUBLIC_URL}/images/icons/settings-round.svg`,
     title1: "LOREM IPSUM",
     title2: "DOLOR SIT",
     subtitle:
@@ -34,7 +34,7 @@ export const CARD_FEATURES = [
     ]
   },
   {
-    icon: "/images/icons/stats-round.svg",
+    icon: `${process.env.PUBLIC_URL}/images/icons/stats-round.svg`,
     title1: "LOREM IPSUM",
     title2: "DOLOR SIT",
     subtitle:
@@ -58,7 +58,7 @@ export const CARD_FEATURES = [
 
 export const GRID_FEATURES = [
   {
-    img: "/images/illustrations/shop.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/shop.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -68,7 +68,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/cash.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/cash.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -78,7 +78,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/box.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/box.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -88,7 +88,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/hand-with-phone.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/hand-with-phone.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -98,7 +98,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/rating.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/rating.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -108,7 +108,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/laptop-stats.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/laptop-stats.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
@@ -118,7 +118,7 @@ export const GRID_FEATURES = [
     }
   },
   {
-    img: "/images/illustrations/loud-speaker.png",
+    img: `${process.env.PUBLIC_URL}/images/illustrations/loud-speaker.png`,
     title: "LOREM IPSUM DOLOR SIT",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
