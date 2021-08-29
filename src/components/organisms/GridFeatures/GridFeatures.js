@@ -88,9 +88,10 @@ const GridFeatures = props => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Typography>
       </Grid>
-      {GRID_FEATURES.map(feature => (
+      {GRID_FEATURES.map((feature, index) => (
         <Grid
           item
+          key={index}
           xs={12}
           md={6}
           className={classes["grid-features__featureItem"]}

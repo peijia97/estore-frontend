@@ -82,8 +82,8 @@ const CardFeatures = props => {
             spacing={isMd ? 10 : 5}
             className={classes["card-features__innerGrid"]}
           >
-            {CARD_FEATURES.map(feature => (
-              <Grid item xs={12} md={4}>
+            {CARD_FEATURES.map((feature, index) => (
+              <Grid item key={index} xs={12} md={4}>
                 <Image
                   className={classes.iconImage}
                   src={feature.icon}
@@ -104,8 +104,8 @@ const CardFeatures = props => {
                 </Typography>
 
                 <List className={classes.featureLinksList}>
-                  {feature.links.map(link => (
-                    <ListItem className={classes.listItem}>
+                  {feature.links.map((link, index) => (
+                    <ListItem key={index} className={classes.listItem}>
                       <Typography
                         variant="overline"
                         color="secondary"

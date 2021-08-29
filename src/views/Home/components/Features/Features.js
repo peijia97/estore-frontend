@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Button, colors } from "@material-ui/core";
-import { Icon } from "components/atoms";
+import { Grid } from "@material-ui/core";
 import { GridFeatures } from "components/organisms";
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +17,7 @@ const Features = props => {
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container spacing={12}>
+      <Grid container spacing={10}>
         <Grid
           item
           container
