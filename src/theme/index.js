@@ -31,7 +31,14 @@ const theme = responsiveFontSizes(
           color: "white"
         },
         outlined: {
-          borderRadius: 50
+          borderRadius: 50,
+          borderWidth: "0.15rem !important"
+        },
+        containedSizeLarge: {
+          padding: "0.6rem 2rem"
+        },
+        outlinedSizeLarge: {
+          padding: "0.6rem 2rem"
         }
       },
       MuiTypography: typography

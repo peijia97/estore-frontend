@@ -146,6 +146,7 @@ const Topbar = props => {
         </List>
       </Hidden>
       <Hidden mdUp>
+        <div className={classes.flexGrow} />
         <IconButton
           className={classes.iconButton}
           onClick={onSidebarOpen}

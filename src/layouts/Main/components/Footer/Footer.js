@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton, List, ListItem } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -48,6 +49,10 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     fontSize: 24
+  },
+  divider: {
+    background: theme.palette.grey[200],
+    height: "0.25rem"
   }
 }));
 
@@ -87,6 +92,14 @@ const Footer = props => {
             </IconButton>
           </ListItem>
         </List>
+      </div>
+
+      <Divider className={classes.divider} />
+
+      <div className={classes.footerContainer}>
+        <IconButton className={classes.socialIcon}>
+          <PinterestIcon className={classes.icon} />
+        </IconButton>
       </div>
     </div>
   );

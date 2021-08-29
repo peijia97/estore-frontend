@@ -1,38 +1,37 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/display-name */
-import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   List,
   ListItem,
   Typography,
   ListItemIcon,
-  Button,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+  Button
+} from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-  },
+  root: {},
   listItem: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexDirection: "column",
+    alignItems: "flex-start"
   },
   listItemIcon: {
-    minWidth: 'auto',
+    minWidth: "auto"
   },
   listItemLink: {
-    textDecoration: 'none',
+    textDecoration: "none"
   },
   closeIcon: {
-    justifyContent: 'flex-end',
-    cursor: 'pointer',
+    justifyContent: "flex-end",
+    cursor: "pointer"
   },
   divider: {
-    width: '100%',
-  },
+    width: "100%"
+  }
 }));
 
 const SidebarNav = props => {
@@ -87,9 +86,9 @@ const SidebarNav = props => {
           fullWidth
           component="a"
           target="blank"
-          href="https://material-ui.com/store/items/the-front-landing-page/"
+          href="#"
         >
-          Upgrade Now
+          Login
         </Button>
       </ListItem>
     </List>
@@ -98,7 +97,7 @@ const SidebarNav = props => {
 
 SidebarNav.propTypes = {
   className: PropTypes.string,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 export default SidebarNav;

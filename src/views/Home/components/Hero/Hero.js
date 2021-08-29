@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core";
 import { Image } from "components/atoms";
 import { SectionHeader } from "components/molecules";
+import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -53,7 +54,12 @@ const Hero = props => {
               <Button variant="contained" color="secondary" size="large">
                 Start now
               </Button>,
-              <Button variant="outlined" color="secondary" size="large">
+              <Button
+                variant="outlined"
+                color="secondary"
+                startIcon={<PlayCircleOutlineRoundedIcon />}
+                size="large"
+              >
                 Learn more
               </Button>
             ]}
@@ -75,12 +81,17 @@ const Hero = props => {
             src="/images/illustrations/hero.png"
             alt="estore-hero"
             className={classes.image}
-            // data-aos="flip-left"
-            // data-aos-easing="ease-out-cubic"
-            // data-aos-duration="2000"
           />
         </Grid>
       </Grid>
+      {/* <Button
+        variant="contained"
+        color="secondary"
+        startIcon={<PlayCircleOutlineRoundedIcon />}
+        size="large"
+      >
+        Watch Video
+      </Button> */}
     </div>
   );
 };

@@ -2,9 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import { Section } from "components/organisms";
-import { Customization, Hero, Hub, Partners, Pricings } from "./components";
-
-import { integrations } from "./data";
+import { Hero, Hub, Features, Testimonials } from "./components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,6 +18,15 @@ const useStyles = makeStyles(theme => ({
   },
   sectionNoPaddingTop: {
     paddingTop: 0
+  },
+  dividerPrimary: {
+    background: theme.palette.primary.main,
+    height: "0.25rem"
+  },
+  dividerSecondary: {
+    background: theme.palette.secondary.main,
+    height: "0.25rem",
+    marginBottom: "0.2rem"
   }
 }));
 
@@ -35,16 +42,13 @@ const Home = () => {
         <Hub />
       </Section>
       <Section>
-        <Partners data={integrations} />
+        <Features />
       </Section>
       <Section>
-        <Customization />
+        <Testimonials />
       </Section>
-      <Divider />
-      <Section innerNarrowed>
-        <Pricings />
-      </Section>
-      <Divider />
+      <Divider className={classes.dividerSecondary} />
+      <Divider className={classes.dividerPrimary} />
     </div>
   );
 };

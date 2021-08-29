@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Button, colors } from "@material-ui/core";
 import { Icon } from "components/atoms";
-import { CardFeatures } from "components/organisms";
+import { GridFeatures } from "components/organisms";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,13 +26,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Hub = props => {
+const Testimonials = props => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container spacing={4}>
+      <Grid container spacing={12}>
         <Grid
           item
           container
@@ -41,7 +41,7 @@ const Hub = props => {
           xs={12}
           data-aos="fade-up"
         >
-          <CardFeatures
+          <GridFeatures
             title="Extended License"
             subtitle="A pay-once license, just for you"
             priceComponent={
@@ -84,11 +84,11 @@ const Hub = props => {
   );
 };
 
-Hub.propTypes = {
+Testimonials.propTypes = {
   /**
    * External classes
    */
   className: PropTypes.string
 };
 
-export default Hub;
+export default Testimonials;
