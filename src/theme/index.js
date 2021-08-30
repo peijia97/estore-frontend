@@ -25,10 +25,15 @@ const theme = responsiveFontSizes(
       },
       MuiButton: {
         contained: {
-          borderRadius: 50
+          borderRadius: 50,
+          color: palette.primary.main,
+          boxShadow: "none"
+        },
+        containedPrimary: {
+          color: palette.common.white
         },
         containedSecondary: {
-          color: "white"
+          color: palette.common.white
         },
         outlined: {
           borderRadius: 50,

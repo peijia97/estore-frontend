@@ -1,9 +1,7 @@
 const primary = "#1E91CF";
 const secondary = "#08A74C";
 const accent = "#F4F9FC";
-const textDarkGrey = "#59595C";
 const textGrey = "#6D6E71";
-const textLightGrey = "#A6A8AC";
 
 const palette = {
   alternate: {

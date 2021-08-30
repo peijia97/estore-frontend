@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       width: 120,
       height: 32,
-      marginLeft: "1rem"
+      paddingLeft: "1rem"
     }
   },
   logoImage: {
@@ -104,7 +104,7 @@ const Topbar = props => {
               color="textSecondary"
               className={classes.listItemText}
               component="a"
-              href="/signup-simple"
+              href="/signup"
             >
               About us
             </Typography>
@@ -141,7 +141,7 @@ const Topbar = props => {
               color="secondary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/the-front-landing-page/"
+              href="#"
               className={classes.listItemButton}
             >
               Get Started

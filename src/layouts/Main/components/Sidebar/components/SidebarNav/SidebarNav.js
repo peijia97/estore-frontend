@@ -61,7 +61,7 @@ const SidebarNav = props => {
           variant="h6"
           color="primary"
           component="a"
-          href="/signup-simple"
+          href="/signup"
           className={classes.listItemLink}
         >
           Sign up
