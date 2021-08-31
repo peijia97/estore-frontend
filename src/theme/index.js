@@ -27,7 +27,13 @@ const theme = responsiveFontSizes(
         contained: {
           borderRadius: 50,
           color: palette.primary.main,
-          boxShadow: "none"
+          boxShadow: "none",
+          backgroundColor: palette.common.white,
+          "&:hover": {
+            backgroundColor: `${palette.common.white}BF`,
+            boxShadow: "none",
+            color: palette.common.white
+          }
         },
         containedPrimary: {
           color: palette.common.white
@@ -47,6 +53,11 @@ const theme = responsiveFontSizes(
         },
         label: {
           fontSize: "1.125rem"
+        }
+      },
+      MuiCheckbox: {
+        root: {
+          color: palette.common.white
         }
       },
       MuiTypography: typography

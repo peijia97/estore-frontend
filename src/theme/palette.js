@@ -10,8 +10,8 @@ const palette = {
   },
   cardShadow: "rgba(23, 70, 161, .11)",
   common: {
-    black: "#000",
-    white: "#fff"
+    black: "#000000",
+    white: "#ffffff"
   },
   type: "light",
   primary: {

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Grid, Button, TextField } from "@material-ui/core";
+import { Typography, Grid, Button, Checkbox } from "@material-ui/core";
+import CustomTextField from "components/atoms/CustomTextField";
 import validate from "validate.js";
 
 const useStyles = makeStyles(theme => ({
@@ -15,10 +16,19 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Roboto-Light",
     color: theme.palette.common.white,
     textDecoration: "underline"
+  },
+  btnSubmit: {
+    textAlign: "right"
   }
 }));
 
 const schema = {
+  companyName: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      maximum: 120
+    }
+  },
   email: {
     presence: { allowEmpty: false, message: "is required" },
     email: true,
@@ -39,6 +49,12 @@ const schema = {
     }
   },
   password: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      minimum: 8
+    }
+  },
+  confirmPassword: {
     presence: { allowEmpty: false, message: "is required" },
     length: {
       minimum: 8
@@ -109,10 +125,27 @@ const Form = () => {
       <form name="password-reset-form" method="post" onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TextField
+            <CustomTextField
+              placeholder="Company name"
+              label="Company name"
+              variant="filled"
+              size="medium"
+              name="companyName"
+              fullWidth
+              helperText={
+                hasError("companyName") ? formState.errors.companyName[0] : null
+              }
+              error={hasError("companyName")}
+              onChange={handleChange}
+              type="companyName"
+              value={formState.values.companyName || ""}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <CustomTextField
               placeholder="First name"
-              label="First name *"
-              variant="outlined"
+              label="First name"
+              variant="filled"
               size="medium"
               name="firstName"
               fullWidth
@@ -126,27 +159,10 @@ const Form = () => {
             />
           </Grid>
           <Grid item xs={6}>
-            <TextField
-              placeholder="First name"
-              label="First name *"
-              variant="outlined"
-              size="medium"
-              name="firstName"
-              fullWidth
-              helperText={
-                hasError("firstName") ? formState.errors.firstName[0] : null
-              }
-              error={hasError("firstName")}
-              onChange={handleChange}
-              type="firstName"
-              value={formState.values.firstName || ""}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
+            <CustomTextField
               placeholder="Last name"
-              label="Last name *"
-              variant="outlined"
+              label="Last name"
+              variant="filled"
               size="medium"
               name="lastName"
               fullWidth
@@ -160,10 +176,10 @@ const Form = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
+            <CustomTextField
               placeholder="E-mail"
-              label="E-mail *"
-              variant="outlined"
+              label="E-mail"
+              variant="filled"
               size="medium"
               name="email"
               fullWidth
@@ -174,11 +190,11 @@ const Form = () => {
               value={formState.values.email || ""}
             />
           </Grid>
-          <Grid item xs={12}>
-            <TextField
+          <Grid item xs={6}>
+            <CustomTextField
               placeholder="Password"
-              label="Password *"
-              variant="outlined"
+              label="Password"
+              variant="filled"
               size="medium"
               name="password"
               fullWidth
@@ -191,7 +207,33 @@ const Form = () => {
               value={formState.values.password || ""}
             />
           </Grid>
+          <Grid item xs={6}>
+            <CustomTextField
+              placeholder="Confirm Password"
+              label="Confirm Password"
+              variant="filled"
+              size="medium"
+              name="confirmPassword"
+              fullWidth
+              helperText={
+                hasError("confirmPassword")
+                  ? formState.errors.confirmPassword[0]
+                  : null
+              }
+              error={hasError("confirmPassword")}
+              onChange={handleChange}
+              type="password"
+              value={formState.values.confirmPassword || ""}
+            />
+          </Grid>
           <Grid item xs={12}>
+            <Checkbox
+              name="tnc"
+              color="default"
+              checked={true}
+              onChange={handleChange}
+              inputProps={{ "aria-label": "primary checkbox" }}
+            />
             <Typography
               variant="body1"
               className={classes.disclaimer}
@@ -203,6 +245,7 @@ const Form = () => {
               variant="overline"
               className={classes.disclaimerLink}
               component="a"
+              href="#"
             >
               Terms of Service{" "}
             </Typography>
@@ -217,11 +260,12 @@ const Form = () => {
               variant="overline"
               className={classes.disclaimerLink}
               component="a"
+              href="#"
             >
-              Privacy Policy*
+              Privacy Policy
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.btnSubmit}>
             <Button size="large" variant="contained" type="submit">
               SIGN UP NOW
             </Button>

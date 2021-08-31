@@ -2,9 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Form } from "./components";
 import { Section } from "components/organisms";
-import { Divider } from "@material-ui/core";
 import { Typography, Grid } from "@material-ui/core";
 import { Image } from "components/atoms";
+import StripesDivider from "components/atoms/StripesDivider";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     overflow: "hidden",
     minHeight: "100vh"
+  },
+  gridContainer: {
+    zIndex: 2
   },
   formContainer: {
     height: "100%",
@@ -21,7 +24,10 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
     maxWidth: 500,
-    margin: `0 auto`
+    margin: `0 auto`,
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "10%"
+    }
   },
   title: {
     color: theme.palette.common.white,
@@ -36,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: "125%",
     position: "relative",
     [theme.breakpoints.up("md")]: {
+      top: "5rem",
       width: "110%"
     },
     [theme.breakpoints.up("lg")]: {
@@ -47,23 +54,6 @@ const useStyles = makeStyles(theme => ({
       bottom: 0,
       margin: "auto"
     }
-  },
-  divider: {
-    position: "absolute",
-    width: "100%",
-    bottom: 0
-  },
-  dividerWhite: {
-    background: theme.palette.common.white,
-    height: "0.2rem"
-  },
-  dividerPrimary: {
-    background: theme.palette.primary.main,
-    height: "0.3rem"
-  },
-  dividerSecondary: {
-    background: theme.palette.secondary.main,
-    height: "0.3rem"
   }
 }));
 
@@ -74,7 +64,7 @@ const Signup = () => {
     <div className={classes.root}>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} lg={6} className={classes.gridContainer}>
             <div className={classes.formContainer}>
               <Typography variant="h2" className={classes.title}>
                 SIGN UP NOW!
@@ -90,12 +80,7 @@ const Signup = () => {
           />
         </Grid>
       </Section>
-      <div className={classes.divider}>
-        <Divider className={classes.dividerWhite} />
-        <Divider className={classes.dividerSecondary} />
-        <Divider className={classes.dividerWhite} />
-        <Divider className={classes.dividerPrimary} />
-      </div>
+      <StripesDivider />
     </div>
   );
 };
