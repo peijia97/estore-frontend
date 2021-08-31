@@ -4,6 +4,7 @@ import { Form } from "./components";
 import { Section } from "components/organisms";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Image } from "components/atoms";
+import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,7 +29,6 @@ const useStyles = makeStyles(theme => ({
   back: {
     position: "absolute",
     fontFamily: "Roboto",
-    textDecoration: "underline",
     textTransform: "capitalize",
     color: theme.palette.primary.main,
     fontWeight: 400,
@@ -106,7 +106,7 @@ const Signup = () => {
       </Typography>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12} lg={12} className={classes.gridContainer}>
+          <Grid item xs={12} lg={6} className={classes.gridContainer}>
             <div className={classes.formContainer}>
               <Typography
                 variant="h4"
@@ -130,7 +130,11 @@ const Signup = () => {
           />
         </Grid>
       </Section>
-      <Button variant="text" className={classes.back}>
+      <Button
+        variant="text"
+        startIcon={<ChevronLeftRoundedIcon />}
+        className={classes.back}
+      >
         Back
       </Button>
     </div>

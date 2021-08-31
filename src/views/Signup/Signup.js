@@ -5,6 +5,7 @@ import { Section } from "components/organisms";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Image } from "components/atoms";
 import StripesDivider from "components/atoms/StripesDivider";
+import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +28,6 @@ const useStyles = makeStyles(theme => ({
   back: {
     position: "absolute",
     fontFamily: "Roboto",
-    textDecoration: "underline",
     textTransform: "capitalize",
     color: theme.palette.common.white,
     fontWeight: 400,
@@ -109,7 +109,11 @@ const Signup = () => {
           />
         </Grid>
       </Section>
-      <Button variant="text" className={classes.back}>
+      <Button
+        variant="text"
+        startIcon={<ChevronLeftRoundedIcon />}
+        className={classes.back}
+      >
         Back
       </Button>
       <StripesDivider />
