@@ -4,18 +4,16 @@ import { Form } from "./components";
 import { Section } from "components/organisms";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Image } from "components/atoms";
-import StripesDivider from "components/atoms/StripesDivider";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.common.white,
     position: "relative",
     overflow: "hidden",
     minHeight: "100vh"
   },
   logo: {
     position: "absolute",
-    color: theme.palette.common.white,
     fontWeight: 400,
     left: "5%",
     top: "1rem",
@@ -24,23 +22,24 @@ const useStyles = makeStyles(theme => ({
       top: "3rem"
     }
   },
+  gridContainer: {
+    zIndex: 2
+  },
   back: {
     position: "absolute",
     fontFamily: "Roboto",
     textDecoration: "underline",
     textTransform: "capitalize",
-    color: theme.palette.common.white,
+    color: theme.palette.primary.main,
     fontWeight: 400,
     right: "5%",
     top: "1rem",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("lg")]: {
+      color: theme.palette.common.white,
       right: "10%",
       top: "auto",
       bottom: "3rem"
     }
-  },
-  gridContainer: {
-    zIndex: 2
   },
   formContainer: {
     height: "100%",
@@ -56,9 +55,23 @@ const useStyles = makeStyles(theme => ({
     }
   },
   title: {
-    color: theme.palette.common.white,
     fontWeight: 400,
+    marginBottom: "1rem"
+  },
+  subtitle: {
+    fontWeight: 500,
     marginBottom: "2rem"
+  },
+  rightContainer: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    background: theme.palette.secondary.main,
+    height: "100%",
+    width: "50vw",
+    [theme.breakpoints.down("md")]: {
+      display: "none"
+    }
   },
   displayImage: {
     top: "2rem",
@@ -88,19 +101,27 @@ const Signup = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5" className={classes.logo}>
+      <Typography variant="h5" color="primary" className={classes.logo}>
         ESTORE
       </Typography>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12} lg={6} className={classes.gridContainer}>
+          <Grid item xs={12} lg={12} className={classes.gridContainer}>
             <div className={classes.formContainer}>
-              <Typography variant="h2" className={classes.title}>
-                SIGN UP NOW!
+              <Typography
+                variant="h4"
+                color="primary"
+                className={classes.title}
+              >
+                SIGN IN
+              </Typography>
+              <Typography variant="h6" className={classes.subtitle}>
+                Welcome back!
               </Typography>
               <Form />
             </div>
           </Grid>
+          <div className={classes.rightContainer}></div>
           <Image
             className={classes.displayImage}
             src={`${process.env.PUBLIC_URL}/images/illustrations/signup.png`}
@@ -112,7 +133,6 @@ const Signup = () => {
       <Button variant="text" className={classes.back}>
         Back
       </Button>
-      <StripesDivider />
     </div>
   );
 };

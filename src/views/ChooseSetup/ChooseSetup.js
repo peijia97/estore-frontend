@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Form } from "./components";
 import { Section } from "components/organisms";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Image } from "components/atoms";
@@ -83,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Signup = () => {
+const ChooseSetup = () => {
   const classes = useStyles();
 
   return (
@@ -96,9 +95,8 @@ const Signup = () => {
           <Grid item xs={12} lg={6} className={classes.gridContainer}>
             <div className={classes.formContainer}>
               <Typography variant="h2" className={classes.title}>
-                SIGN UP NOW!
+                Choose Plan
               </Typography>
-              <Form />
             </div>
           </Grid>
           <Image
@@ -117,4 +115,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default ChooseSetup;

@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Form } from "./components";
 import { Section } from "components/organisms";
-import { Typography, Grid, Button } from "@material-ui/core";
-import { Image } from "components/atoms";
+import { Typography, Grid } from "@material-ui/core";
+import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import StripesDivider from "components/atoms/StripesDivider";
 
 const useStyles = makeStyles(theme => ({
@@ -24,23 +23,28 @@ const useStyles = makeStyles(theme => ({
       top: "3rem"
     }
   },
-  back: {
+  externalLink: {
     position: "absolute",
     fontFamily: "Roboto",
-    textDecoration: "underline",
-    textTransform: "capitalize",
-    color: theme.palette.common.white,
     fontWeight: 400,
-    right: "5%",
+    left: "10%",
     top: "1rem",
+    display: "flex",
+    alignItems: "center",
+    "& span": {
+      textTransform: "capitalize",
+      color: theme.palette.common.white,
+      marginRight: "0.25rem"
+    },
+    "& a": {
+      textDecoration: "underline",
+      color: theme.palette.common.white
+    },
     [theme.breakpoints.up("md")]: {
       right: "10%",
       top: "auto",
       bottom: "3rem"
     }
-  },
-  gridContainer: {
-    zIndex: 2
   },
   formContainer: {
     height: "100%",
@@ -58,32 +62,21 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: theme.palette.common.white,
     fontWeight: 400,
+    marginBottom: "1rem"
+  },
+  subtitle: {
+    color: theme.palette.common.white,
+    fontWeight: 400,
     marginBottom: "2rem"
   },
-  displayImage: {
-    top: "2rem",
-    bottom: 0,
-    left: "1rem",
-    right: 0,
-    width: "125%",
-    position: "relative",
-    [theme.breakpoints.up("md")]: {
-      top: "5rem",
-      width: "110%"
-    },
-    [theme.breakpoints.up("lg")]: {
-      position: "absolute",
-      right: "-35rem",
-      width: "70%",
-      height: "auto",
-      top: "10%",
-      bottom: 0,
-      margin: "auto"
-    }
+  icon: {
+    color: theme.palette.common.white,
+    fontSize: "1rem",
+    marginLeft: "0.25rem"
   }
 }));
 
-const Signup = () => {
+const ChoosePlan = () => {
   const classes = useStyles();
 
   return (
@@ -93,28 +86,28 @@ const Signup = () => {
       </Typography>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12} lg={6} className={classes.gridContainer}>
+          <Grid item xs={12}>
             <div className={classes.formContainer}>
               <Typography variant="h2" className={classes.title}>
-                SIGN UP NOW!
+                Choose Plan
               </Typography>
-              <Form />
+              <Typography variant="h6" className={classes.subtitle}>
+                Lorem ipsum dolor sit
+              </Typography>
             </div>
           </Grid>
-          <Image
-            className={classes.displayImage}
-            src={`${process.env.PUBLIC_URL}/images/illustrations/signup.png`}
-            alt="signup"
-            lazy={false}
-          />
         </Grid>
       </Section>
-      <Button variant="text" className={classes.back}>
-        Back
-      </Button>
+      <div className={classes.externalLink}>
+        <Typography component="span">Learn more</Typography>
+        <Typography component="a" href="#">
+          here
+        </Typography>
+        <OpenInNewRoundedIcon className={classes.icon} />
+      </div>
       <StripesDivider />
     </div>
   );
 };
 
-export default Signup;
+export default ChoosePlan;

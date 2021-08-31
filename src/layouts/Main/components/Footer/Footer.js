@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { Divider, Grid, TextField } from "@material-ui/core";
+import { Divider, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, List, ListItem } from "@material-ui/core";
+import CustomTextField from "components/atoms/CustomTextField";
 
 import { Image } from "components/atoms";
 
@@ -238,10 +239,10 @@ const Footer = props => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <TextField
+            <CustomTextField
               placeholder="Lorem Ipsum"
               label="Lorem Ipsum"
-              variant="outlined"
+              variant="filled"
               size="medium"
               name="emailAddress"
               fullWidth

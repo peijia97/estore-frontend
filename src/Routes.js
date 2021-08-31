@@ -7,6 +7,10 @@ import { Main as MainLayout, Minimal as MinimalLayout } from "./layouts";
 import {
   Home as HomeView,
   Signup as SignupView,
+  Login as LoginView,
+  ChoosePlan as ChoosePlanView,
+  Payment as PaymentView,
+  ChooseSetup as ChooseSetupView,
   NotFound as NotFoundView
 } from "./views";
 
@@ -25,6 +29,10 @@ const Routes = () => {
         path={`/home`}
       />
       <RouteWithoutLayout component={SignupView} exact path={`/signup`} />
+      <RouteWithoutLayout component={LoginView} exact path={`/login`} />
+      <RouteWithoutLayout component={ChoosePlanView} exact path={`/plan`} />
+      <RouteWithoutLayout component={PaymentView} exact path={`/payment`} />
+      <RouteWithoutLayout component={ChooseSetupView} exact path={`/setup`} />
       <RouteWithLayout
         component={NotFoundView}
         exact

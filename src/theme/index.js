@@ -36,14 +36,24 @@ const theme = responsiveFontSizes(
           }
         },
         containedPrimary: {
-          color: palette.common.white
+          color: palette.common.white,
+          "&:hover": {
+            backgroundColor: `${palette.primary.main}BF !important`
+          }
         },
         containedSecondary: {
-          color: palette.common.white
+          color: palette.common.white,
+          "&:hover": {
+            backgroundColor: `${palette.secondary.main}BF !important`
+          }
         },
         outlined: {
           borderRadius: 50,
-          borderWidth: "0.15rem !important"
+          borderWidth: "0.15rem !important",
+          "&:hover": {
+            backgroundColor: `${palette.secondary.main}26 !important`,
+            borderColor: "transparent !important"
+          }
         },
         containedSizeLarge: {
           padding: "0.6rem 2rem"

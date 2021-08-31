@@ -1,0 +1,191 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography, Grid, Button } from "@material-ui/core";
+import CustomTextField from "components/atoms/CustomTextField";
+import validate from "validate.js";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%"
+  },
+  disclaimer: {
+    fontFamily: "Roboto"
+  },
+  disclaimerLink: {
+    fontFamily: "Roboto",
+    textDecoration: "none"
+  },
+  btnSubmit: {
+    textAlign: "right"
+  }
+}));
+
+const schema = {
+  companyName: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      maximum: 120
+    }
+  },
+  email: {
+    presence: { allowEmpty: false, message: "is required" },
+    email: true,
+    length: {
+      maximum: 300
+    }
+  },
+  firstName: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      maximum: 120
+    }
+  },
+  lastName: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      maximum: 120
+    }
+  },
+  password: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      minimum: 8
+    }
+  },
+  confirmPassword: {
+    presence: { allowEmpty: false, message: "is required" },
+    length: {
+      minimum: 8
+    }
+  }
+};
+
+const Form = () => {
+  const classes = useStyles();
+
+  const [formState, setFormState] = React.useState({
+    isValid: false,
+    values: {},
+    touched: {},
+    errors: {}
+  });
+
+  React.useEffect(() => {
+    const errors = validate(formState.values, schema);
+
+    setFormState(formState => ({
+      ...formState,
+      isValid: errors ? false : true,
+      errors: errors || {}
+    }));
+  }, [formState.values]);
+
+  const handleChange = event => {
+    event.persist();
+
+    setFormState(formState => ({
+      ...formState,
+      values: {
+        ...formState.values,
+        [event.target.name]:
+          event.target.type === "checkbox"
+            ? event.target.checked
+            : event.target.value
+      },
+      touched: {
+        ...formState.touched,
+        [event.target.name]: true
+      }
+    }));
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    if (formState.isValid) {
+      window.location.replace("/");
+    }
+
+    setFormState(formState => ({
+      ...formState,
+      touched: {
+        ...formState.touched,
+        ...formState.errors
+      }
+    }));
+  };
+
+  const hasError = field =>
+    formState.touched[field] && formState.errors[field] ? true : false;
+
+  return (
+    <div className={classes.root}>
+      <form name="password-reset-form" method="post" onSubmit={handleSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <CustomTextField
+              placeholder="Email address"
+              label="Email address"
+              variant="filled"
+              size="medium"
+              name="email"
+              fullWidth
+              helperText={hasError("email") ? formState.errors.email[0] : null}
+              error={hasError("email")}
+              onChange={handleChange}
+              type="email"
+              value={formState.values.email || ""}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <CustomTextField
+              placeholder="Password"
+              label="Password"
+              variant="filled"
+              size="medium"
+              name="password"
+              fullWidth
+              helperText={
+                hasError("password") ? formState.errors.password[0] : null
+              }
+              error={hasError("password")}
+              onChange={handleChange}
+              type="password"
+              value={formState.values.password || ""}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              variant="body1"
+              className={classes.disclaimer}
+              component="span"
+            >
+              New here?{" "}
+            </Typography>
+            <Typography
+              variant="overline"
+              color="primary"
+              className={classes.disclaimerLink}
+              component="a"
+              href="#"
+            >
+              Get started
+            </Typography>
+          </Grid>
+          <Grid item xs={12} className={classes.btnSubmit}>
+            <Button
+              size="large"
+              variant="contained"
+              color="primary"
+              type="submit"
+            >
+              SIGN IN
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </div>
+  );
+};
+
+export default Form;
