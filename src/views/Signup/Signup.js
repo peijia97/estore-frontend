@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Form } from "./components";
 import { Section } from "components/organisms";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, Button } from "@material-ui/core";
 import { Image } from "components/atoms";
 import StripesDivider from "components/atoms/StripesDivider";
 
@@ -12,6 +12,32 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     overflow: "hidden",
     minHeight: "100vh"
+  },
+  logo: {
+    position: "absolute",
+    color: theme.palette.common.white,
+    fontWeight: 400,
+    left: "5%",
+    top: "1rem",
+    [theme.breakpoints.up("md")]: {
+      left: "10%",
+      top: "3rem"
+    }
+  },
+  back: {
+    position: "absolute",
+    fontFamily: "Roboto",
+    textDecoration: "underline",
+    textTransform: "capitalize",
+    color: theme.palette.common.white,
+    fontWeight: 400,
+    right: "5%",
+    top: "1rem",
+    [theme.breakpoints.up("md")]: {
+      right: "10%",
+      top: "auto",
+      bottom: "3rem"
+    }
   },
   gridContainer: {
     zIndex: 2
@@ -62,6 +88,9 @@ const Signup = () => {
 
   return (
     <div className={classes.root}>
+      <Typography variant="h4" className={classes.logo}>
+        Estore
+      </Typography>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6} className={classes.gridContainer}>
@@ -80,6 +109,9 @@ const Signup = () => {
           />
         </Grid>
       </Section>
+      <Button variant="text" className={classes.back}>
+        Back
+      </Button>
       <StripesDivider />
     </div>
   );
