@@ -17,6 +17,14 @@ const useStyles = makeStyles(theme => ({
   },
   btnSubmit: {
     textAlign: "right"
+  },
+  outlined: {
+    "& .MuiInputBase-root": {
+      border: `0.1rem solid ${theme.palette.grey[700]}`,
+      "&.Mui-focused": {
+        borderColor: theme.palette.primary.main
+      }
+    }
   }
 }));
 
@@ -124,6 +132,7 @@ const Form = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Email address"
               label="Email address"
               variant="filled"
@@ -139,6 +148,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={12}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Password"
               label="Password"
               variant="filled"

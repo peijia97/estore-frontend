@@ -11,6 +11,8 @@ import {
   ChoosePlan as ChoosePlanView,
   Payment as PaymentView,
   ChooseSetup as ChooseSetupView,
+  ChooseType as ChooseTypeView,
+  ChoosePlatform as ChoosePlatformView,
   NotFound as NotFoundView
 } from "./views";
 
@@ -33,6 +35,12 @@ const Routes = () => {
       <RouteWithoutLayout component={ChoosePlanView} exact path={`/plan`} />
       <RouteWithoutLayout component={PaymentView} exact path={`/payment`} />
       <RouteWithoutLayout component={ChooseSetupView} exact path={`/setup`} />
+      <RouteWithoutLayout component={ChooseTypeView} exact path={`/type`} />
+      <RouteWithoutLayout
+        component={ChoosePlatformView}
+        exact
+        path={`/platform`}
+      />
       <RouteWithLayout
         component={NotFoundView}
         exact

@@ -17,6 +17,14 @@ const useStyles = makeStyles(theme => ({
   },
   btnSubmit: {
     textAlign: "right"
+  },
+  outlined: {
+    "& .MuiInputBase-root": {
+      border: `0.1rem solid ${theme.palette.grey[700]}`,
+      "&.Mui-focused": {
+        borderColor: theme.palette.primary.main
+      }
+    }
   }
 }));
 
@@ -123,6 +131,7 @@ const Form = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Credit/debit card number"
               label="Credit/debit card number*"
               variant="filled"
@@ -140,6 +149,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Expiration month"
               label="Expiration month"
               variant="filled"
@@ -157,6 +167,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Expiration year"
               label="Expiration year"
               variant="filled"
@@ -174,6 +185,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="First name"
               label="First name"
               variant="filled"
@@ -191,6 +203,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Last name"
               label="Last name"
               variant="filled"
@@ -208,6 +221,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={12}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Billing address"
               label="Billing address*"
               variant="filled"
@@ -227,6 +241,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Zip code"
               label="Zip code"
               variant="filled"
@@ -244,6 +259,7 @@ const Form = () => {
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Country"
               label="Country"
               variant="filled"

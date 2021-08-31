@@ -35,8 +35,7 @@ const useStyles = makeStyles(theme => ({
     right: "5%",
     top: "1rem",
     [theme.breakpoints.up("lg")]: {
-      color: theme.palette.common.white,
-      right: "10%",
+      left: "10%",
       top: "auto",
       bottom: "3rem"
     }
@@ -86,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up("lg")]: {
       position: "absolute",
-      right: "-35rem",
+      right: "-45rem",
       width: "70%",
       height: "auto",
       top: "10%",

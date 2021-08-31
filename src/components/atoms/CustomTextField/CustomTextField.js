@@ -2,20 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
+import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: theme.palette.common.white,
     border: "none",
-    borderRadius: 50,
     overflow: "hidden",
-    margin: "0 0.5rem",
+    "& .MuiInputBase-root": {
+      borderRadius: 50
+    },
     "& input": {
       background: theme.palette.common.white,
       fontFamily: "Roboto",
       fontWeight: 600
     },
     "& input:-webkit-autofill": {
+      borderRadius: 0,
       "-webkit-box-shadow": "0 0 0 30px white inset"
     },
     "& .MuiInputLabel-filled": {
@@ -41,13 +43,13 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props
  */
 const CustomTextField = props => {
-  const { fontIconClass, size, fontIconColor, className, ...rest } = props;
+  const { className, ...rest } = props;
 
   const classes = useStyles();
 
   return (
     <TextField
-      className={classes.root}
+      className={clsx(classes.root, className)}
       InputProps={{ disableUnderline: true, classes: classes }}
       {...rest}
     />

@@ -5,3 +5,5 @@ export { default as Login } from "./Login";
 export { default as ChoosePlan } from "./ChoosePlan";
 export { default as Payment } from "./Payment";
 export { default as ChooseSetup } from "./ChooseSetup";
+export { default as ChooseType } from "./ChooseType";
+export { default as ChoosePlatform } from "./ChoosePlatform";
