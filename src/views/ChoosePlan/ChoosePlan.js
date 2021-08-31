@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Section } from "components/organisms";
+import { CardPlan } from "./components";
 import { Typography, Grid } from "@material-ui/core";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import StripesDivider from "components/atoms/StripesDivider";
@@ -24,13 +25,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   externalLink: {
-    position: "absolute",
     fontFamily: "Roboto",
     fontWeight: 400,
-    left: "10%",
-    top: "1rem",
+    marginTop: "2rem",
+    margin: `0 auto`,
     display: "flex",
     alignItems: "center",
+    maxWidth: 500,
     "& span": {
       textTransform: "capitalize",
       color: theme.palette.common.white,
@@ -39,11 +40,6 @@ const useStyles = makeStyles(theme => ({
     "& a": {
       textDecoration: "underline",
       color: theme.palette.common.white
-    },
-    [theme.breakpoints.up("md")]: {
-      right: "10%",
-      top: "auto",
-      bottom: "3rem"
     }
   },
   formContainer: {
@@ -56,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 500,
     margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
-      marginTop: "10%"
+      marginTop: "5%"
     }
   },
   title: {
@@ -73,6 +69,17 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.common.white,
     fontSize: "1rem",
     marginLeft: "0.25rem"
+  },
+  optionGrid: {
+    justifyContent: "center",
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "2rem"
+    }
+  },
+  optionContainer: {
+    width: "22rem",
+    maxWidth: "100%",
+    textAlign: "-webkit-center"
   }
 }));
 
@@ -86,7 +93,7 @@ const ChoosePlan = () => {
       </Typography>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12}>
+          <Grid item xs={12} lg={6}>
             <div className={classes.formContainer}>
               <Typography variant="h2" className={classes.title}>
                 Choose Plan
@@ -96,15 +103,30 @@ const ChoosePlan = () => {
               </Typography>
             </div>
           </Grid>
+
+          <Grid container spacing={5} className={classes.optionGrid}>
+            <Grid item xs={12} lg={4} className={classes.optionContainer}>
+              <CardPlan />
+            </Grid>
+            <Grid item xs={12} lg={4} className={classes.optionContainer}>
+              <CardPlan />
+            </Grid>
+            <Grid item xs={12} lg={4} className={classes.optionContainer}>
+              <CardPlan />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item xs={12} lg={6}>
+          <div className={classes.externalLink}>
+            <Typography component="span">Learn more</Typography>
+            <Typography component="a" href="#">
+              here
+            </Typography>
+            <OpenInNewRoundedIcon className={classes.icon} />
+          </div>
         </Grid>
       </Section>
-      <div className={classes.externalLink}>
-        <Typography component="span">Learn more</Typography>
-        <Typography component="a" href="#">
-          here
-        </Typography>
-        <OpenInNewRoundedIcon className={classes.icon} />
-      </div>
       <StripesDivider />
     </div>
   );

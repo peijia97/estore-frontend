@@ -69,20 +69,21 @@ const useStyles = makeStyles(theme => ({
   },
   optionContainer: {
     textAlign: "center",
-    margin: "2rem 0"
+    margin: "3rem 0"
   },
   optionTitle: {
     color: theme.palette.common.white,
     fontWeight: 400,
-    marginBottom: "1rem"
+    marginBottom: "1.5rem"
   },
   optionSubtitle: {
     color: theme.palette.common.white,
-    maxWidth: "18rem",
+    maxWidth: "22rem",
+    fontSize: "1.125rem",
     fontWeight: 400,
     lineHeight: "28px",
     margin: "auto",
-    marginBottom: "1rem"
+    marginBottom: "1.5rem"
   },
   centerDivider: {
     position: "absolute",
