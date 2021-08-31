@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/estore-frontend/static/js/main.04964aa8.chunk.js",
+    "main.js": "/estore-frontend/static/js/main.3321d5ac.chunk.js",
     "runtime-main.js": "/estore-frontend/static/js/runtime-main.1d494969.js",
     "static/css/2.959bdfa2.chunk.css": "/estore-frontend/static/css/2.959bdfa2.chunk.css",
-    "static/js/2.e445cab5.chunk.js": "/estore-frontend/static/js/2.e445cab5.chunk.js",
+    "static/js/2.948ff477.chunk.js": "/estore-frontend/static/js/2.948ff477.chunk.js",
     "index.html": "/estore-frontend/index.html",
-    "static/js/2.e445cab5.chunk.js.LICENSE.txt": "/estore-frontend/static/js/2.e445cab5.chunk.js.LICENSE.txt"
+    "static/js/2.948ff477.chunk.js.LICENSE.txt": "/estore-frontend/static/js/2.948ff477.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1d494969.js",
     "static/css/2.959bdfa2.chunk.css",
-    "static/js/2.e445cab5.chunk.js",
-    "static/js/main.04964aa8.chunk.js"
+    "static/js/2.948ff477.chunk.js",
+    "static/js/main.3321d5ac.chunk.js"
   ]
 }
