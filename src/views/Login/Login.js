@@ -98,6 +98,10 @@ const useStyles = makeStyles(theme => ({
 const Signup = () => {
   const classes = useStyles();
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className={classes.root}>
       <Typography variant="h5" color="primary" className={classes.logo}>
@@ -133,6 +137,7 @@ const Signup = () => {
         variant="text"
         startIcon={<ChevronLeftRoundedIcon />}
         className={classes.back}
+        onClick={handleBack}
       >
         Back
       </Button>

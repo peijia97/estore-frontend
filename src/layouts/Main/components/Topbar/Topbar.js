@@ -106,7 +106,7 @@ const Topbar = props => {
               component="a"
               href="/signup"
             >
-              About us
+              Sign up
             </Typography>
           </ListItem>
           <ListItem className={classes.listItem}>
@@ -115,9 +115,53 @@ const Topbar = props => {
               color="textSecondary"
               className={classes.listItemText}
               component="a"
-              href="/not-found"
+              href="/plan"
             >
-              Contact us
+              Choose plan
+            </Typography>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              className={classes.listItemText}
+              component="a"
+              href="/payment"
+            >
+              Choose Payment
+            </Typography>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              className={classes.listItemText}
+              component="a"
+              href="/setup"
+            >
+              Choose Setup
+            </Typography>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              className={classes.listItemText}
+              component="a"
+              href="/type"
+            >
+              Choose Type
+            </Typography>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              className={classes.listItemText}
+              component="a"
+              href="/platform"
+            >
+              Choose Platform
             </Typography>
           </ListItem>
         </List>
@@ -129,7 +173,7 @@ const Topbar = props => {
               color="textSecondary"
               className={classes.listItemText}
               component="a"
-              href="/not-found"
+              href="/login"
             >
               Log in
             </Typography>

@@ -79,6 +79,61 @@ const SidebarNav = props => {
         </Typography>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Typography
+          variant="h6"
+          color="primary"
+          component="a"
+          href="/plan"
+          className={classes.listItemLink}
+        >
+          Choose Plan page
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography
+          variant="h6"
+          color="primary"
+          component="a"
+          href="/payment"
+          className={classes.listItemLink}
+        >
+          Choose Payment page
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography
+          variant="h6"
+          color="primary"
+          component="a"
+          href="/setup"
+          className={classes.listItemLink}
+        >
+          Choose Setup page
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography
+          variant="h6"
+          color="primary"
+          component="a"
+          href="/type"
+          className={classes.listItemLink}
+        >
+          Choose Type page
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography
+          variant="h6"
+          color="primary"
+          component="a"
+          href="/platform"
+          className={classes.listItemLink}
+        >
+          Choose Platform page
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <Button
           size="large"
           variant="contained"
@@ -86,7 +141,7 @@ const SidebarNav = props => {
           fullWidth
           component="a"
           target="blank"
-          href="#"
+          href="/login"
         >
           Login
         </Button>
