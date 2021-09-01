@@ -50,7 +50,7 @@ const SidebarNav = props => {
           variant="h6"
           color="primary"
           component="a"
-          href="/home"
+          href={`${process.env.PUBLIC_URL}/home`}
           className={classes.listItemLink}
         >
           Home
@@ -61,7 +61,7 @@ const SidebarNav = props => {
           variant="h6"
           color="primary"
           component="a"
-          href="/signup"
+          href={`${process.env.PUBLIC_URL}/signup`}
           className={classes.listItemLink}
         >
           Sign up

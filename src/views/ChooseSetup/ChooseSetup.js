@@ -87,11 +87,11 @@ const useStyles = makeStyles(theme => ({
   },
   centerDivider: {
     position: "absolute",
+    width: "auto",
     left: 0,
     right: 0,
     margin: "auto",
     height: "100%",
-    width: "1rem",
     textAlign: "-webkit-center",
     [theme.breakpoints.down("lg")]: {
       width: "100%",

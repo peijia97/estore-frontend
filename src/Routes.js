@@ -19,11 +19,7 @@ import {
 const Routes = () => {
   return (
     <Switch>
-      <Redirect
-        exact
-        from={`${process.env.REACT_APP_ROUTE_PREFIX}` || "/"}
-        to={`/home`}
-      />
+      <Redirect exact from={`/`} to={`/home`} />
       <RouteWithLayout
         component={HomeView}
         exact

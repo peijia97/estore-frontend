@@ -85,50 +85,6 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     marginBottom: "1.5rem"
   },
-  centerDivider: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    margin: "auto",
-    height: "100%",
-    width: "1rem",
-    textAlign: "-webkit-center",
-    [theme.breakpoints.down("lg")]: {
-      width: "100%",
-      height: "auto",
-      bottom: 0,
-      top: 0
-    }
-  },
-  divider: {
-    background: theme.palette.common.white,
-    width: "20rem",
-    maxWidth: "100%",
-    height: "0.15rem",
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    margin: "auto",
-    [theme.breakpoints.up("lg")]: {
-      width: "0.15rem",
-      height: "100%"
-    }
-  },
-  dividerText: {
-    color: theme.palette.common.white,
-    background: theme.palette.secondary.main,
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    margin: "auto",
-    height: "fit-content",
-    width: "fit-content",
-    left: 0,
-    right: 0,
-    padding: "1rem"
-  },
   btnStart: {
     minWidth: "11rem"
   }

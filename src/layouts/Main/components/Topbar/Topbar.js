@@ -93,7 +93,7 @@ const Topbar = props => {
               color="textSecondary"
               className={classes.listItemText}
               component="a"
-              href="/home"
+              href={`${process.env.PUBLIC_URL}/home`}
             >
               Home
             </Typography>
@@ -104,7 +104,7 @@ const Topbar = props => {
               color="textSecondary"
               className={classes.listItemText}
               component="a"
-              href="/signup"
+              href={`${process.env.PUBLIC_URL}/signup`}
             >
               Sign up
             </Typography>
