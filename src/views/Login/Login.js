@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Form } from "./components";
 import { Section } from "components/organisms";
-import { Typography, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
 import { Image } from "components/atoms";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 
@@ -104,9 +104,11 @@ const Signup = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5" color="primary" className={classes.logo}>
-        ESTORE
-      </Typography>
+      <ButtonBase href="/home" className={classes.logo}>
+        <Typography variant="h5" color="primary">
+          ESTORE
+        </Typography>
+      </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6} className={classes.gridContainer}>

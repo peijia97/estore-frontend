@@ -74,7 +74,12 @@ const CardPlan = props => {
       <Typography variant="body1" className={classes.pricingSubtitle}>
         Annually
       </Typography>
-      <Button variant="contained" size="large" className={classes.btnStart}>
+      <Button
+        variant="contained"
+        size="large"
+        href="/payment"
+        className={classes.btnStart}
+      >
         GET STARTED
       </Button>
     </Card>

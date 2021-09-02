@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Section } from "components/organisms";
 import { Form } from "./components";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, ButtonBase } from "@material-ui/core";
 import VerticalDivider from "components/atoms/VerticalDivider";
 import ChevronRightRoundedIcon from "@material-ui/icons/ChevronRightRounded";
 import Summary from "./components/Summary";
@@ -69,9 +69,11 @@ const Payment = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5" color="primary" className={classes.logo}>
-        ESTORE
-      </Typography>
+      <ButtonBase href="/home" className={classes.logo}>
+        <Typography variant="h5" color="primary">
+          ESTORE
+        </Typography>
+      </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6}>

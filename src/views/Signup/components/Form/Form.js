@@ -266,7 +266,7 @@ const Form = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} className={classes.btnSubmit}>
-            <Button size="large" variant="contained" type="submit">
+            <Button size="large" variant="contained" type="submit" href="/plan">
               SIGN UP NOW
             </Button>
           </Grid>

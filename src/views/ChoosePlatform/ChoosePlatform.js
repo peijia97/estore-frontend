@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Section } from "components/organisms";
-import { Typography, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
 import StripesDivider from "components/atoms/StripesDivider";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 
@@ -14,13 +14,15 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     position: "absolute",
-    color: theme.palette.common.white,
-    fontWeight: 400,
     left: "5%",
     top: "1rem",
     [theme.breakpoints.up("md")]: {
       left: "10%",
       top: "3rem"
+    },
+    "& .MuiTypography-root": {
+      fontWeight: 400,
+      color: theme.palette.common.white
     }
   },
   back: {
@@ -99,9 +101,9 @@ const ChoosePlatform = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5" className={classes.logo}>
-        ESTORE
-      </Typography>
+      <ButtonBase href="/home" className={classes.logo}>
+        <Typography variant="h5">ESTORE</Typography>
+      </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6}>

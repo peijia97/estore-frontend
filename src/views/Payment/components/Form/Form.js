@@ -313,6 +313,7 @@ const Form = () => {
               variant="contained"
               color="primary"
               type="submit"
+              href="/setup"
             >
               PLACE SECURE ORDER
             </Button>
