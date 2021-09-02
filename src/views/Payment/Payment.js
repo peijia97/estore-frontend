@@ -5,6 +5,8 @@ import { Form } from "./components";
 import { Typography, Grid } from "@material-ui/core";
 import VerticalDivider from "components/atoms/VerticalDivider";
 import ChevronRightRoundedIcon from "@material-ui/icons/ChevronRightRounded";
+import Summary from "./components/Summary";
+import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +56,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       marginBottom: "2rem"
     }
+  },
+  summaryContainer: {
+    [theme.breakpoints.down("md")]: {
+      display: "none"
+    }
   }
 }));
 
@@ -88,7 +95,13 @@ const Payment = () => {
               <Form />
             </div>
           </Grid>
-          <Grid item xs={12} lg={6}></Grid>
+          <Grid item xs={12} lg={6}>
+            <div
+              className={clsx(classes.formContainer, classes.summaryContainer)}
+            >
+              <Summary />
+            </div>
+          </Grid>
         </Grid>
       </Section>
       <VerticalDivider />

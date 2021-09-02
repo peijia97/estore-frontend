@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Button } from "@material-ui/core";
 import CustomTextField from "components/atoms/CustomTextField";
 import validate from "validate.js";
+import Summary from "../Summary";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +25,13 @@ const useStyles = makeStyles(theme => ({
       "&.Mui-focused": {
         borderColor: theme.palette.primary.main
       }
+    }
+  },
+  summaryContainer: {
+    marginTop: "1rem",
+    [theme.breakpoints.up("lg")]: {
+      marginTop: 0,
+      display: "none"
     }
   }
 }));
@@ -274,6 +282,10 @@ const Form = () => {
               type="text"
               value={formState.values.country || ""}
             />
+          </Grid>
+
+          <Grid item xs={12} className={classes.summaryContainer}>
+            <Summary />
           </Grid>
 
           <Grid item xs={12}>

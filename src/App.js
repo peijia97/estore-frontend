@@ -1,8 +1,10 @@
 import React from "react";
-import { Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import { Image } from "components/atoms";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Paper, CssBaseline } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Paper, CssBaseline, ButtonBase } from "@material-ui/core";
 import AOS from "aos";
 
 import theme from "./theme";
@@ -29,6 +31,21 @@ browserHistory.listen(location => {
   });
 });
 
+const useStyles = makeStyles(theme => ({
+  root: {},
+  btnChat: {
+    position: "fixed",
+    zIndex: 2,
+    bottom: "8%",
+    right: "6%",
+    background: "white",
+    width: "4.375rem",
+    height: "4.375rem",
+    borderRadius: "50%",
+    boxShadow: "0px 5px 18px -5px rgb(0 0 0 / 35%)"
+  }
+}));
+
 const App = () => {
   AOS.init({
     once: true,
@@ -37,14 +54,22 @@ const App = () => {
     easing: "ease-in-out"
   });
 
+  const classes = useStyles();
+
   return (
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper>
-        <Router>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes />
-        </Router>
+        </BrowserRouter>
+        <ButtonBase className={classes.btnChat} href="#">
+          <Image
+            src={`${process.env.PUBLIC_URL}/images/icons/rocket-chat.svg`}
+            alt="chat"
+          />
+        </ButtonBase>
       </Paper>
     </ThemeProvider>
   );
