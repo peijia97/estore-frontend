@@ -4,6 +4,8 @@ import { Section } from "components/organisms";
 import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
 import StripesDivider from "components/atoms/StripesDivider";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
+import ChevronRightRoundedIcon from "@material-ui/icons/ChevronRightRounded";
+import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,30 +67,35 @@ const useStyles = makeStyles(theme => ({
   },
   optionGrid: {
     position: "relative",
+    marginTop: "1rem",
     [theme.breakpoints.up("lg")]: {
       marginTop: "3rem"
     }
   },
   optionContainer: {
     textAlign: "center",
-    margin: "3rem 0"
+    padding: "0 20px !important"
   },
-  optionTitle: {
+  btnContinue: {
+    minWidth: "11rem",
+    marginTop: "1rem"
+  },
+  textCenter: {
+    textAlign: "center"
+  },
+  btnContainer: {
+    width: "100%",
+    maxWidth: "30rem",
+    border: "0.15rem solid white",
+    borderRadius: "50px",
     color: theme.palette.common.white,
-    fontWeight: 400,
-    marginBottom: "1.5rem"
-  },
-  optionSubtitle: {
-    color: theme.palette.common.white,
-    maxWidth: "22rem",
-    fontSize: "1.125rem",
-    fontWeight: 400,
-    lineHeight: "28px",
-    margin: "auto",
-    marginBottom: "1.5rem"
-  },
-  btnStart: {
-    minWidth: "11rem"
+    padding: "1rem 2rem",
+    marginBottom: "1rem",
+    "& span": {
+      flex: 1,
+      textAlign: "left",
+      color: theme.palette.common.white
+    }
   }
 }));
 
@@ -116,20 +123,57 @@ const ChooseType = () => {
               </Typography>
             </div>
           </Grid>
-          <Grid container className={classes.optionGrid}>
-            <Grid
-              item
-              xs={12}
-              lg={6}
-              className={classes.optionContainer}
-            ></Grid>
+          <Grid container spacing={5} className={classes.optionGrid}>
+            <Grid item xs={12} lg={6} className={classes.optionContainer}>
+              <ButtonBase className={classes.btnContainer}>
+                <Typography variant="body1" component="span">
+                  Lorem Ipsum 1
+                </Typography>
+                <ChevronRightRoundedIcon />
+              </ButtonBase>
+            </Grid>
 
-            <Grid
+            <Grid item xs={12} lg={6} className={classes.optionContainer}>
+              <ButtonBase className={classes.btnContainer}>
+                <Typography variant="body1" component="span">
+                  Lorem Ipsum 1
+                </Typography>
+                <ChevronRightRoundedIcon />
+              </ButtonBase>
+            </Grid>
+
+            <Grid item xs={12} lg={6} className={classes.optionContainer}>
+              <ButtonBase className={classes.btnContainer}>
+                <Typography variant="body1" component="span">
+                  Lorem Ipsum 1
+                </Typography>
+                <ChevronRightRoundedIcon />
+              </ButtonBase>
+            </Grid>
+
+            <Grid item xs={12} lg={6} className={classes.optionContainer}>
+              <ButtonBase className={classes.btnContainer}>
+                <Typography variant="body1" component="span">
+                  Lorem Ipsum 1
+                </Typography>
+                <ChevronRightRoundedIcon />
+              </ButtonBase>
+            </Grid>
+
+            {/* <Grid
               item
               xs={12}
-              lg={6}
-              className={classes.optionContainer}
-            ></Grid>
+              className={clsx(classes.optionContainer, classes.textCenter)}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                className={classes.btnContinue}
+                href="/platform"
+              >
+                CONTINUE
+              </Button>
+            </Grid> */}
           </Grid>
         </Grid>
       </Section>

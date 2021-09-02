@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto 3rem",
     padding: theme.spacing(0, 2)
   },
+  extraMarginBottom: {
+    marginBottom: "6rem"
+  },
   logoContainerItem: {
     paddingTop: 0
   },
@@ -231,7 +234,7 @@ const Footer = props => {
 
       <Divider className={classes.divider} />
 
-      <div className={classes.footerContainer}>
+      <div className={clsx(classes.footerContainer, classes.extraMarginBottom)}>
         <Grid container spacing={5} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography variant="body1">

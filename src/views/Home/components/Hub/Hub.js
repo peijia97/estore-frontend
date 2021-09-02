@@ -17,7 +17,7 @@ const Hub = props => {
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container spacing={4}>
+      <Grid container>
         <Grid
           item
           container

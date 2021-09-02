@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Divider } from "@material-ui/core";
+import { Divider, ButtonBase } from "@material-ui/core";
 import { Section } from "components/organisms";
+import { Image } from "components/atoms";
 import { Hero, Hub, Features, Testimonials } from "./components";
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +25,17 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.secondary.main,
     height: "0.25rem",
     marginBottom: "0.2rem"
+  },
+  btnChat: {
+    position: "fixed",
+    zIndex: 2,
+    bottom: "8%",
+    right: "6%",
+    background: "white",
+    width: "4.375rem",
+    height: "4.375rem",
+    borderRadius: "50%",
+    boxShadow: "0px 5px 18px -5px rgb(0 0 0 / 35%)"
   }
 }));
 
@@ -46,6 +58,12 @@ const Home = () => {
       </Section>
       <Divider className={classes.dividerSecondary} />
       <Divider className={classes.dividerPrimary} />
+      <ButtonBase className={classes.btnChat} href="#">
+        <Image
+          src={`${process.env.PUBLIC_URL}/images/icons/rocket-chat.svg`}
+          alt="chat"
+        />
+      </ButtonBase>
     </div>
   );
 };
