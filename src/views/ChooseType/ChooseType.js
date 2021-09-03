@@ -5,7 +5,6 @@ import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
 import StripesDivider from "components/atoms/StripesDivider";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@material-ui/icons/ChevronRightRounded";
-import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,6 +12,13 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     overflow: "hidden",
     minHeight: "100vh"
+  },
+  section: {
+    maxWidth: "45rem",
+    position: "relative",
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "80rem"
+    }
   },
   logo: {
     position: "absolute",
@@ -42,15 +48,12 @@ const useStyles = makeStyles(theme => ({
       bottom: "3rem"
     }
   },
-  formContainer: {
+  titleContainer: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
-    maxWidth: 500,
-    margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
       marginTop: "3rem"
     }
@@ -74,23 +77,32 @@ const useStyles = makeStyles(theme => ({
   },
   optionContainer: {
     textAlign: "center",
-    padding: "0 20px !important"
+    [theme.breakpoints.up("lg")]: {
+      paddingRight: "12px",
+      "&:nth-child(2n)": {
+        paddingRight: 0
+      }
+    }
   },
   btnContinue: {
     minWidth: "11rem",
     marginTop: "1rem"
   },
-  textCenter: {
-    textAlign: "center"
-  },
   btnContainer: {
     width: "100%",
-    maxWidth: "30rem",
     border: "0.15rem solid white",
     borderRadius: "50px",
     color: theme.palette.common.white,
-    padding: "1rem 2rem",
+    padding: "1.2rem 1.5rem",
     marginBottom: "1rem",
+    transition: "all 0.3s",
+    "&:hover": {
+      background: `${theme.palette.common.white}1A`,
+      "& svg": {
+        transition: "all 0.3s",
+        marginRight: "0.5rem"
+      }
+    },
     "& span": {
       flex: 1,
       textAlign: "left",
@@ -114,7 +126,7 @@ const ChooseType = () => {
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6}>
-            <div className={classes.formContainer}>
+            <div className={classes.titleContainer}>
               <Typography variant="h2" className={classes.title}>
                 Choose Type
               </Typography>
@@ -123,7 +135,7 @@ const ChooseType = () => {
               </Typography>
             </div>
           </Grid>
-          <Grid container spacing={5} className={classes.optionGrid}>
+          <Grid container className={classes.optionGrid}>
             <Grid item xs={12} lg={6} className={classes.optionContainer}>
               <ButtonBase className={classes.btnContainer}>
                 <Typography variant="body1" component="span">
@@ -159,21 +171,6 @@ const ChooseType = () => {
                 <ChevronRightRoundedIcon />
               </ButtonBase>
             </Grid>
-
-            {/* <Grid
-              item
-              xs={12}
-              className={clsx(classes.optionContainer, classes.textCenter)}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                className={classes.btnContinue}
-                href="/platform"
-              >
-                CONTINUE
-              </Button>
-            </Grid> */}
           </Grid>
         </Grid>
       </Section>

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Section } from "components/organisms";
 import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
 import StripesDivider from "components/atoms/StripesDivider";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
+import CheckCircleRoundedIcon from "@material-ui/icons/CheckCircleRounded";
+import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,6 +13,13 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     overflow: "hidden",
     minHeight: "100vh"
+  },
+  section: {
+    maxWidth: "45rem",
+    position: "relative",
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "80rem"
+    }
   },
   logo: {
     position: "absolute",
@@ -40,15 +49,12 @@ const useStyles = makeStyles(theme => ({
       bottom: "3rem"
     }
   },
-  formContainer: {
+  titleContainer: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
-    maxWidth: 500,
-    margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
       marginTop: "3rem"
     }
@@ -65,38 +71,72 @@ const useStyles = makeStyles(theme => ({
   },
   optionGrid: {
     position: "relative",
+    marginTop: "1rem",
     [theme.breakpoints.up("lg")]: {
       marginTop: "3rem"
     }
   },
   optionContainer: {
     textAlign: "center",
-    margin: "3rem 0"
+    [theme.breakpoints.up("lg")]: {
+      paddingRight: "12px",
+      "&:nth-child(2n)": {
+        paddingRight: 0
+      }
+    }
   },
-  optionTitle: {
+  btnContinue: {
+    position: "absolute",
+    right: 0,
+    minWidth: "13rem",
+    marginTop: "2rem",
+    marginRight: "1rem"
+  },
+  btnContainer: {
+    width: "100%",
+    border: "0.15rem solid white",
+    borderRadius: "50px",
     color: theme.palette.common.white,
-    fontWeight: 400,
-    marginBottom: "1.5rem"
+    padding: "1.2rem 1.5rem",
+    marginBottom: "1rem",
+    transition: "all 0.3s",
+    "&:hover": {
+      background: `${theme.palette.common.white}1A`
+    },
+    "& svg": {
+      marginRight: "0.5rem"
+    },
+    "& span": {
+      flex: 1,
+      textAlign: "left",
+      color: theme.palette.common.white
+    }
   },
-  optionSubtitle: {
-    color: theme.palette.common.white,
-    maxWidth: "22rem",
-    fontSize: "1.125rem",
-    fontWeight: 400,
-    lineHeight: "28px",
-    margin: "auto",
-    marginBottom: "1.5rem"
+  iconCheckBox: {
+    color: `${theme.palette.common.white}80`
   },
-  btnStart: {
-    minWidth: "11rem"
+  checked: {
+    color: theme.palette.common.white
   }
 }));
 
 const ChoosePlatform = () => {
   const classes = useStyles();
 
+  const [selected, setSelected] = useState([]);
+
   const handleBack = () => {
     window.history.back();
+  };
+
+  const handleSelect = index => {
+    const tempSelected = Object.assign([], selected);
+    if (tempSelected.findIndex(s => s === index) > -1) {
+      setSelected(tempSelected.filter(s => s !== index));
+    } else {
+      tempSelected.push(index);
+      setSelected(tempSelected);
+    }
   };
 
   return (
@@ -106,32 +146,54 @@ const ChoosePlatform = () => {
       </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
-          <Grid item xs={12} lg={6}>
-            <div className={classes.formContainer}>
+          <Grid item xs={12}>
+            <div className={classes.titleContainer}>
               <Typography variant="h2" className={classes.title}>
                 Choose Platform
               </Typography>
               <Typography variant="h6" className={classes.subtitle}>
-                Lorem ipsum dolor sit
+                You can choose more than one
               </Typography>
             </div>
           </Grid>
           <Grid container className={classes.optionGrid}>
-            <Grid
-              item
-              xs={12}
-              lg={6}
-              className={classes.optionContainer}
-            ></Grid>
-
-            <Grid
-              item
-              xs={12}
-              lg={6}
-              className={classes.optionContainer}
-            ></Grid>
+            {Array(4)
+              .fill()
+              .map((item, i) => (
+                <Grid
+                  item
+                  xs={12}
+                  lg={6}
+                  key={i}
+                  className={classes.optionContainer}
+                >
+                  <ButtonBase
+                    onClick={() => handleSelect(i)}
+                    className={classes.btnContainer}
+                  >
+                    <CheckCircleRoundedIcon
+                      className={clsx(
+                        selected.findIndex(s => s === i) > -1 &&
+                          classes.checked,
+                        classes.iconCheckBox
+                      )}
+                    />
+                    <Typography variant="body1" component="span">
+                      Lorem Ipsum {i + 1}
+                    </Typography>
+                  </ButtonBase>
+                </Grid>
+              ))}
           </Grid>
         </Grid>
+        <Button
+          variant="contained"
+          size="large"
+          className={classes.btnContinue}
+          href="/platform"
+        >
+          CONTINUE
+        </Button>
       </Section>
       <Button
         variant="text"
