@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Button } from "@material-ui/core";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import CustomTextField from "components/atoms/CustomTextField";
 import validate from "validate.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    width: "100%",
+    position: "relative"
   },
   disclaimer: {
     fontFamily: "Roboto"
@@ -16,13 +21,23 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none"
   },
   btnSubmit: {
-    textAlign: "right"
+    textAlign: "right",
+    minWidth: "13rem",
+    position: "absolute",
+    right: 0
   },
   outlined: {
     "& .MuiInputBase-root": {
+      background: "transparent",
       border: `0.1rem solid ${theme.palette.grey[700]}`,
       "&.Mui-focused": {
         borderColor: theme.palette.primary.main
+      },
+      "&.MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiInputBase-input": {
+        background: "transparent"
       }
     }
   }
@@ -70,6 +85,8 @@ const schema = {
 
 const Form = () => {
   const classes = useStyles();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [formState, setFormState] = React.useState({
     isValid: false,
@@ -126,6 +143,14 @@ const Form = () => {
   const hasError = field =>
     formState.touched[field] && formState.errors[field] ? true : false;
 
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
   return (
     <div className={classes.root}>
       <form name="password-reset-form" method="post" onSubmit={handleSubmit}>
@@ -158,9 +183,26 @@ const Form = () => {
               helperText={
                 hasError("password") ? formState.errors.password[0] : null
               }
+              InputProps={{
+                disableUnderline: true,
+                endAdornment: (
+                  <InputAdornment>
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? (
+                        <VisibilityIcon />
+                      ) : (
+                        <VisibilityOffIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
               error={hasError("password")}
               onChange={handleChange}
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={formState.values.password || ""}
             />
           </Grid>
@@ -182,8 +224,9 @@ const Form = () => {
               Get started
             </Typography>
           </Grid>
-          <Grid item xs={12} className={classes.btnSubmit}>
+          <Grid item xs={12}>
             <Button
+              className={classes.btnSubmit}
               size="large"
               variant="contained"
               color="primary"

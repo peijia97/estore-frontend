@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   outlined: {
     "& .MuiInputBase-root": {
+      background: "transparent",
       border: `0.1rem solid ${theme.palette.grey[700]}`,
       "&.Mui-focused": {
         borderColor: theme.palette.primary.main
@@ -164,6 +165,7 @@ const Form = () => {
               size="medium"
               name="firstName"
               fullWidth
+              select
               helperText={
                 hasError("firstName") ? formState.errors.firstName[0] : null
               }
@@ -182,6 +184,7 @@ const Form = () => {
               size="medium"
               name="lastName"
               fullWidth
+              select
               helperText={
                 hasError("lastName") ? formState.errors.lastName[0] : null
               }
@@ -274,6 +277,7 @@ const Form = () => {
               size="medium"
               name="country"
               fullWidth
+              select
               helperText={
                 hasError("country") ? formState.errors.country[0] : null
               }

@@ -56,10 +56,10 @@ const theme = responsiveFontSizes(
           }
         },
         containedSizeLarge: {
-          padding: "0.6rem 2rem"
+          padding: "0.8rem 2rem"
         },
         outlinedSizeLarge: {
-          padding: "0.6rem 2rem"
+          padding: "0.8rem 2rem"
         },
         label: {
           fontSize: "1.125rem"

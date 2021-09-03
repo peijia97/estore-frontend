@@ -47,10 +47,11 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-start",
     justifyContent: "center",
     // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
-    maxWidth: 500,
+    maxWidth: "35rem",
     margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
-      marginTop: "10%"
+      marginTop: "10%",
+      marginLeft: 0
     }
   },
   title: {
@@ -73,14 +74,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   displayImage: {
-    top: "2rem",
+    top: "6rem",
     bottom: 0,
     left: "1rem",
     right: 0,
     width: "125%",
     position: "relative",
     [theme.breakpoints.up("md")]: {
-      top: "5rem",
+      top: "8rem",
       width: "110%"
     },
     [theme.breakpoints.up("lg")]: {

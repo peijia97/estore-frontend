@@ -8,6 +8,18 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100%"
   },
+  fieldGrid: {
+    background: theme.palette.common.white,
+    marginBottom: "1rem",
+    borderRadius: "50px"
+  },
+  outlined: {
+    "& .MuiInputBase-root": {
+      "&.Mui-focused": {
+        border: `0.1rem solid ${theme.palette.primary.main}`
+      }
+    }
+  },
   disclaimer: {
     fontFamily: "Roboto-Light",
     color: theme.palette.common.white
@@ -123,9 +135,10 @@ const Form = () => {
   return (
     <div className={classes.root}>
       <form name="password-reset-form" method="post" onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
+        <Grid container spacing={1}>
+          <Grid item xs={12} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Company name"
               label="Company name"
               variant="filled"
@@ -141,8 +154,9 @@ const Form = () => {
               value={formState.values.companyName || ""}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="First name"
               label="First name"
               variant="filled"
@@ -158,8 +172,9 @@ const Form = () => {
               value={formState.values.firstName || ""}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Last name"
               label="Last name"
               variant="filled"
@@ -175,8 +190,9 @@ const Form = () => {
               value={formState.values.lastName || ""}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="E-mail"
               label="E-mail"
               variant="filled"
@@ -190,8 +206,9 @@ const Form = () => {
               value={formState.values.email || ""}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Password"
               label="Password"
               variant="filled"
@@ -207,8 +224,9 @@ const Form = () => {
               value={formState.values.password || ""}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.fieldGrid}>
             <CustomTextField
+              className={classes.outlined}
               placeholder="Confirm Password"
               label="Confirm Password"
               variant="filled"

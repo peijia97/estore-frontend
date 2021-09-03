@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-start",
     justifyContent: "center",
     // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
-    maxWidth: 500,
+    maxWidth: "35rem",
     margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
       marginTop: "3rem"
@@ -115,8 +115,8 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     margin: "auto",
     [theme.breakpoints.up("lg")]: {
-      width: "0.15rem",
-      height: "100%"
+      width: "0.125rem",
+      height: "85%"
     }
   },
   dividerText: {

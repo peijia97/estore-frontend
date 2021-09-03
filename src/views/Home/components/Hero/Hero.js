@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   root: {},
   image: {
     [theme.breakpoints.down("sm")]: {
-      maxWidth: 500
+      maxWidth: "35rem"
     }
   }
 }));

@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-start",
     justifyContent: "center",
     // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
-    maxWidth: 500,
+    maxWidth: "35rem",
     margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
       marginTop: "10%"
