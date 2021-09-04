@@ -1,8 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { Typography, Card, Button } from "@material-ui/core";
+import { Typography, Card, Button, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -10,19 +11,25 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "30px",
     backgroundColor: "transparent",
     border: "0.15rem solid white",
-    textAlign: "center",
-    padding: "2rem",
+    textAlign: "left",
+    padding: "2rem 2.5rem",
     width: "20rem",
-    height: "20rem",
     maxWidth: "100%",
     fontFamily: "Roboto",
+    transition: "all 0.2s",
     "&:hover": {
-      backgroundColor: `${theme.palette.common.white}26`
+      transition: "all 0.2s",
+      backgroundColor: `${theme.palette.common.white}26`,
+      borderColor: "transparent"
+    },
+    "& hr": {
+      margin: "2.5em 0 1rem",
+      backgroundColor: theme.palette.common.white
     }
   },
   optionTitle: {
     color: theme.palette.common.white,
-    marginBottom: "0.8rem",
+    marginBottom: "0.5rem",
     fontWeight: 400
   },
   optionSubtitle: {
@@ -41,8 +48,23 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "2.5rem"
   },
   btnStart: {
-    width: "12rem",
-    maxWidth: "100%"
+    width: "100%"
+  },
+  btnVideo: {
+    color: theme.palette.common.white,
+    textDecoration: "underline",
+    fontWeight: 400,
+    marginTop: "1rem",
+    width: "100%"
+  },
+  itemTitle: {
+    color: `${theme.palette.common.white}99`,
+    marginBottom: "0.25rem"
+  },
+  itemDescription: {
+    color: theme.palette.common.white,
+    marginBottom: "1.2rem",
+    "&:last-of-type": { marginBottom: "2.5rem" }
   }
 }));
 
@@ -81,6 +103,35 @@ const CardPlan = props => {
         className={classes.btnStart}
       >
         GET STARTED
+      </Button>
+      <Divider />
+      {Array(3)
+        .fill()
+        .map(item => (
+          <>
+            <Typography variant="body2" className={classes.itemTitle}>
+              LOREM
+            </Typography>
+            <Typography variant="body1" className={classes.itemDescription}>
+              Lorem dolor sit amet, consintador adsimpiscing elit.
+            </Typography>
+          </>
+        ))}
+      <Button
+        variant="contained"
+        size="large"
+        href="/payment"
+        className={classes.btnStart}
+      >
+        GET STARTED
+      </Button>
+      <Button
+        variant="text"
+        size="large"
+        startIcon={<PlayCircleOutlineRoundedIcon />}
+        className={classes.btnVideo}
+      >
+        LOREM IPSUM
       </Button>
     </Card>
   );

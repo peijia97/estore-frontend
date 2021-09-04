@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props
  */
 const CustomTextField = props => {
-  const { className, ...rest } = props;
+  const { className, children, ...rest } = props;
 
   const classes = useStyles();
 
@@ -52,7 +52,9 @@ const CustomTextField = props => {
       className={clsx(classes.root, className)}
       InputProps={{ disableUnderline: true, classes: classes }}
       {...rest}
-    />
+    >
+      {children}
+    </TextField>
   );
 };
 

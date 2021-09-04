@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   outlined: {
     "& .MuiInputBase-root": {
+      backgroundColor: theme.palette.common.white,
       border: `0.1rem solid white`,
       "&.Mui-focused": {
         borderColor: theme.palette.primary.main
@@ -60,18 +61,6 @@ const schema = {
     presence: { allowEmpty: false, message: "is required" },
     length: {
       maximum: 120
-    }
-  },
-  password: {
-    presence: { allowEmpty: false, message: "is required" },
-    length: {
-      minimum: 8
-    }
-  },
-  confirmPassword: {
-    presence: { allowEmpty: false, message: "is required" },
-    length: {
-      minimum: 8
     }
   }
 };
@@ -220,48 +209,7 @@ const Form = () => {
               />
             </div>
           </Grid>
-          <Grid item xs={6}>
-            <div className={classes.fieldGrid}>
-              <CustomTextField
-                className={classes.outlined}
-                placeholder="Password"
-                label="Password"
-                variant="filled"
-                size="medium"
-                name="password"
-                fullWidth
-                helperText={
-                  hasError("password") ? formState.errors.password[0] : null
-                }
-                error={hasError("password")}
-                onChange={handleChange}
-                type="password"
-                value={formState.values.password || ""}
-              />
-            </div>
-          </Grid>
-          <Grid item xs={6}>
-            <div className={classes.fieldGrid}>
-              <CustomTextField
-                className={classes.outlined}
-                placeholder="Confirm Password"
-                label="Confirm Password"
-                variant="filled"
-                size="medium"
-                name="confirmPassword"
-                fullWidth
-                helperText={
-                  hasError("confirmPassword")
-                    ? formState.errors.confirmPassword[0]
-                    : null
-                }
-                error={hasError("confirmPassword")}
-                onChange={handleChange}
-                type="password"
-                value={formState.values.confirmPassword || ""}
-              />
-            </div>
-          </Grid>
+
           <Grid item xs={12}>
             <Checkbox
               name="tnc"

@@ -60,8 +60,7 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     color: theme.palette.common.white,
-    fontWeight: 400,
-    marginBottom: "2rem"
+    fontWeight: 400
   },
   optionGrid: {
     position: "relative",
@@ -116,7 +115,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     [theme.breakpoints.up("lg")]: {
       width: "0.125rem",
-      height: "85%"
+      height: "80%"
     }
   },
   dividerText: {

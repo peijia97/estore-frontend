@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Button } from "@material-ui/core";
 import CustomTextField from "components/atoms/CustomTextField";
+import MenuItem from "@material-ui/core/MenuItem";
 import validate from "validate.js";
 import Summary from "../Summary";
 
@@ -163,17 +164,22 @@ const Form = () => {
               label="Expiration month"
               variant="filled"
               size="medium"
-              name="firstName"
+              name="expirationMonth"
               fullWidth
               select
               helperText={
-                hasError("firstName") ? formState.errors.firstName[0] : null
+                hasError("expirationMonth")
+                  ? formState.errors.expirationMonth[0]
+                  : null
               }
-              error={hasError("firstName")}
+              error={hasError("expirationMonth")}
               onChange={handleChange}
-              type="firstName"
-              value={formState.values.firstName || ""}
-            />
+              type="expirationMonth"
+              value={formState.values.expirationMonth || ""}
+            >
+              <MenuItem value="1">1</MenuItem>
+              <MenuItem value="2">2</MenuItem>
+            </CustomTextField>
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
@@ -182,17 +188,22 @@ const Form = () => {
               label="Expiration year"
               variant="filled"
               size="medium"
-              name="lastName"
+              name="expirationYear"
               fullWidth
               select
               helperText={
-                hasError("lastName") ? formState.errors.lastName[0] : null
+                hasError("expirationYear")
+                  ? formState.errors.expirationYear[0]
+                  : null
               }
-              error={hasError("lastName")}
+              error={hasError("expirationYear")}
               onChange={handleChange}
-              type="lastName"
-              value={formState.values.lastName || ""}
-            />
+              type="expirationYear"
+              value={formState.values.expirationYear || ""}
+            >
+              <MenuItem value="1">1</MenuItem>
+              <MenuItem value="2">2</MenuItem>
+            </CustomTextField>
           </Grid>
           <Grid item xs={6}>
             <CustomTextField
@@ -285,7 +296,10 @@ const Form = () => {
               onChange={handleChange}
               type="text"
               value={formState.values.country || ""}
-            />
+            >
+              <MenuItem value="my">MY</MenuItem>
+              <MenuItem value="sg">SG</MenuItem>
+            </CustomTextField>
           </Grid>
 
           <Grid item xs={12} className={classes.summaryContainer}>

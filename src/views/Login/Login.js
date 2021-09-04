@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "35rem",
     margin: `0 auto`,
     [theme.breakpoints.up("lg")]: {
-      marginTop: "10%",
+      marginTop: "8%",
       marginLeft: 0
     }
   },

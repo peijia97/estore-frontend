@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Grid, Divider } from "@material-ui/core";
+import { Typography, Grid, Divider, Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,12 +15,26 @@ const useStyles = makeStyles(theme => ({
     padding: "3rem 2rem",
     borderRadius: "30px",
     width: "100%",
+    marginBottom: "1rem",
     [theme.breakpoints.up("lg")]: {
       maxWidth: "25rem"
+    },
+    "& hr": {
+      margin: "2.5rem 0 2rem"
     }
   },
-  divider: {
-    margin: "2.5rem 0 2rem"
+  addOnCard: {
+    background: theme.palette.background.default,
+    padding: "2rem",
+    borderRadius: "30px",
+    width: "100%",
+    marginBottom: "1rem",
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "25rem"
+    },
+    "& hr": {
+      margin: "1rem 0"
+    }
   },
   title: {
     fontFamily: "Roboto",
@@ -38,11 +52,24 @@ const useStyles = makeStyles(theme => ({
   },
   textRight: {
     textAlign: "right"
+  },
+  btnAddOn: {
+    textDecoration: "underline",
+    float: "right",
+    "&:hover": {
+      cursor: "pointer"
+    }
   }
 }));
 
 const Summary = () => {
   const classes = useStyles();
+
+  const [cart, setCart] = useState({ productName: "Lorem", price: "123" });
+
+  const handleAddOn = () => {
+    setCart({ productName: "Lorem Hello", price: "999" });
+  };
 
   return (
     <div className={classes.root}>
@@ -52,12 +79,12 @@ const Summary = () => {
 
       <div className={classes.summaryCard}>
         <Typography variant="h5" className={classes.title}>
-          Lorem
+          {cart.productName}
         </Typography>
         <Typography variant="h6" className={classes.subtitle}>
-          Annually - RM123
+          Annually - RM{cart.price}
         </Typography>
-        <Divider className={classes.divider} />
+        <Divider />
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Typography variant="h6" className={classes.subtotal}>
@@ -69,10 +96,42 @@ const Summary = () => {
           </Grid>
           <Grid item xs={6} className={classes.textRight}>
             <Typography variant="h6" className={classes.subtotal}>
-              RM123
+              RM{cart.price}
             </Typography>
             <Typography variant="h6" className={classes.tax}>
               Not specified
+            </Typography>
+          </Grid>
+        </Grid>
+      </div>
+
+      <div className={classes.addOnCard}>
+        <Typography variant="body1" className={classes.subtitle}>
+          Consider buying
+        </Typography>
+        <Divider />
+
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Typography variant="h6" className={classes.title}>
+              Special Plan
+            </Typography>
+            <Typography variant="body1" className={classes.listItem}>
+              * upsell feature 1
+            </Typography>
+            <Typography variant="body1" className={classes.listItem}>
+              * upsell feature 2
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography
+              variant="body1"
+              component="span"
+              color="primary"
+              className={classes.btnAddOn}
+              onClick={handleAddOn}
+            >
+              [+] I want this plan
             </Typography>
           </Grid>
         </Grid>
