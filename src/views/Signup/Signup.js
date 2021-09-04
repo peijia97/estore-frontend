@@ -75,8 +75,8 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up("lg")]: {
       position: "absolute",
-      right: "-35rem",
-      width: "70%",
+      right: "-45rem",
+      width: "60%",
       height: "auto",
       top: "10%",
       bottom: 0,

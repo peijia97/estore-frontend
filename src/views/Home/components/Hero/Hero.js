@@ -9,6 +9,11 @@ import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRo
 
 const useStyles = makeStyles(theme => ({
   root: {},
+  title: {
+    fontWeight: 400,
+    fontSize: "56px",
+    lineHeight: "64px"
+  },
   image: {
     [theme.breakpoints.down("sm")]: {
       maxWidth: "35rem"
@@ -43,11 +48,14 @@ const Hero = props => {
         >
           <SectionHeader
             title={
-              <span>
-                <Typography component="span" variant="inherit" color="primary">
-                  LOREM IPSUM DOLOR SIT AMET, EST LABORUM.
-                </Typography>
-              </span>
+              <Typography
+                variant="h2"
+                color="primary"
+                component="span"
+                className={classes.title}
+              >
+                LOREM IPSUM DOLOR SIT AMET, EST LABORUM.
+              </Typography>
             }
             subtitle="Lorem ipsum dolor sit amet."
             ctaGroup={[

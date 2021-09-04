@@ -11,12 +11,14 @@ const useStyles = makeStyles(theme => ({
   fieldGrid: {
     background: theme.palette.common.white,
     marginBottom: "1rem",
-    borderRadius: "50px"
+    borderRadius: "50px",
+    padding: "0.25rem"
   },
   outlined: {
     "& .MuiInputBase-root": {
+      border: `0.1rem solid white`,
       "&.Mui-focused": {
-        border: `0.1rem solid ${theme.palette.primary.main}`
+        borderColor: theme.palette.primary.main
       }
     }
   },
@@ -136,113 +138,129 @@ const Form = () => {
     <div className={classes.root}>
       <form name="password-reset-form" method="post" onSubmit={handleSubmit}>
         <Grid container spacing={1}>
-          <Grid item xs={12} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="Company name"
-              label="Company name"
-              variant="filled"
-              size="medium"
-              name="companyName"
-              fullWidth
-              helperText={
-                hasError("companyName") ? formState.errors.companyName[0] : null
-              }
-              error={hasError("companyName")}
-              onChange={handleChange}
-              type="companyName"
-              value={formState.values.companyName || ""}
-            />
+          <Grid item xs={12}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="Company name"
+                label="Company name"
+                variant="filled"
+                size="medium"
+                name="companyName"
+                fullWidth
+                helperText={
+                  hasError("companyName")
+                    ? formState.errors.companyName[0]
+                    : null
+                }
+                error={hasError("companyName")}
+                onChange={handleChange}
+                type="companyName"
+                value={formState.values.companyName || ""}
+              />
+            </div>
           </Grid>
-          <Grid item xs={6} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="First name"
-              label="First name"
-              variant="filled"
-              size="medium"
-              name="firstName"
-              fullWidth
-              helperText={
-                hasError("firstName") ? formState.errors.firstName[0] : null
-              }
-              error={hasError("firstName")}
-              onChange={handleChange}
-              type="firstName"
-              value={formState.values.firstName || ""}
-            />
+          <Grid item xs={6}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="First name"
+                label="First name"
+                variant="filled"
+                size="medium"
+                name="firstName"
+                fullWidth
+                helperText={
+                  hasError("firstName") ? formState.errors.firstName[0] : null
+                }
+                error={hasError("firstName")}
+                onChange={handleChange}
+                type="firstName"
+                value={formState.values.firstName || ""}
+              />
+            </div>
           </Grid>
-          <Grid item xs={6} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="Last name"
-              label="Last name"
-              variant="filled"
-              size="medium"
-              name="lastName"
-              fullWidth
-              helperText={
-                hasError("lastName") ? formState.errors.lastName[0] : null
-              }
-              error={hasError("lastName")}
-              onChange={handleChange}
-              type="lastName"
-              value={formState.values.lastName || ""}
-            />
+          <Grid item xs={6}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="Last name"
+                label="Last name"
+                variant="filled"
+                size="medium"
+                name="lastName"
+                fullWidth
+                helperText={
+                  hasError("lastName") ? formState.errors.lastName[0] : null
+                }
+                error={hasError("lastName")}
+                onChange={handleChange}
+                type="lastName"
+                value={formState.values.lastName || ""}
+              />
+            </div>
           </Grid>
-          <Grid item xs={12} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="E-mail"
-              label="E-mail"
-              variant="filled"
-              size="medium"
-              name="email"
-              fullWidth
-              helperText={hasError("email") ? formState.errors.email[0] : null}
-              error={hasError("email")}
-              onChange={handleChange}
-              type="email"
-              value={formState.values.email || ""}
-            />
+          <Grid item xs={12}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="E-mail"
+                label="E-mail"
+                variant="filled"
+                size="medium"
+                name="email"
+                fullWidth
+                helperText={
+                  hasError("email") ? formState.errors.email[0] : null
+                }
+                error={hasError("email")}
+                onChange={handleChange}
+                type="email"
+                value={formState.values.email || ""}
+              />
+            </div>
           </Grid>
-          <Grid item xs={6} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="Password"
-              label="Password"
-              variant="filled"
-              size="medium"
-              name="password"
-              fullWidth
-              helperText={
-                hasError("password") ? formState.errors.password[0] : null
-              }
-              error={hasError("password")}
-              onChange={handleChange}
-              type="password"
-              value={formState.values.password || ""}
-            />
+          <Grid item xs={6}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="Password"
+                label="Password"
+                variant="filled"
+                size="medium"
+                name="password"
+                fullWidth
+                helperText={
+                  hasError("password") ? formState.errors.password[0] : null
+                }
+                error={hasError("password")}
+                onChange={handleChange}
+                type="password"
+                value={formState.values.password || ""}
+              />
+            </div>
           </Grid>
-          <Grid item xs={6} className={classes.fieldGrid}>
-            <CustomTextField
-              className={classes.outlined}
-              placeholder="Confirm Password"
-              label="Confirm Password"
-              variant="filled"
-              size="medium"
-              name="confirmPassword"
-              fullWidth
-              helperText={
-                hasError("confirmPassword")
-                  ? formState.errors.confirmPassword[0]
-                  : null
-              }
-              error={hasError("confirmPassword")}
-              onChange={handleChange}
-              type="password"
-              value={formState.values.confirmPassword || ""}
-            />
+          <Grid item xs={6}>
+            <div className={classes.fieldGrid}>
+              <CustomTextField
+                className={classes.outlined}
+                placeholder="Confirm Password"
+                label="Confirm Password"
+                variant="filled"
+                size="medium"
+                name="confirmPassword"
+                fullWidth
+                helperText={
+                  hasError("confirmPassword")
+                    ? formState.errors.confirmPassword[0]
+                    : null
+                }
+                error={hasError("confirmPassword")}
+                onChange={handleChange}
+                type="password"
+                value={formState.values.confirmPassword || ""}
+              />
+            </div>
           </Grid>
           <Grid item xs={12}>
             <Checkbox
