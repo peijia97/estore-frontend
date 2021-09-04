@@ -18,7 +18,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       maxWidth: "35rem"
     }
-  }
+  },
+  linkText: { fontWeight: "900", textDecoration: "none" },
+  disclaimer: { width: "100%" }
 }));
 
 const Hero = props => {
@@ -49,7 +51,7 @@ const Hero = props => {
           <SectionHeader
             title={
               <Typography
-                variant="h2"
+                variant="h3"
                 color="primary"
                 component="span"
                 className={classes.title}
@@ -75,6 +77,23 @@ const Hero = props => {
             disableGutter
             titleVariant="h3"
           />
+          <div className={classes.disclaimer}>
+            <Typography variant="body1" component="span">
+              Lorem ipsum
+            </Typography>{" "}
+            <Typography
+              variant="body1"
+              component="a"
+              className={classes.linkText}
+              color="primary"
+              href="#"
+            >
+              DOLOR
+            </Typography>{" "}
+            <Typography variant="body1" component="span">
+              sit amet, est laborum.
+            </Typography>
+          </div>
         </Grid>
         <Grid
           item
