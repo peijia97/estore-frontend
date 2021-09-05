@@ -11,16 +11,13 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.common.white,
     position: "relative",
     overflow: "hidden",
-    minHeight: `calc(100vh - ${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px)`
+    minHeight: "100vh"
+    // minHeight: `calc(100vh - ${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px)`
   },
   logo: {
-    position: "absolute",
-    fontWeight: 400,
-    left: "5%",
-    top: "1rem",
-    [theme.breakpoints.up("md")]: {
-      left: "10%",
-      top: "3rem"
+    marginTop: "-3rem",
+    "& .MuiTypography-root": {
+      fontWeight: 400
     }
   },
   gridContainer: {
@@ -105,12 +102,12 @@ const Signup = () => {
 
   return (
     <div className={classes.root}>
-      <ButtonBase href="/home" className={classes.logo}>
-        <Typography variant="h5" color="primary">
-          ESTORE
-        </Typography>
-      </ButtonBase>
       <Section className={classes.section}>
+        <ButtonBase href="/home" className={classes.logo}>
+          <Typography variant="h5" color="primary">
+            ESTORE
+          </Typography>
+        </ButtonBase>
         <Grid container>
           <Grid item xs={12} lg={6} className={classes.gridContainer}>
             <div className={classes.formContainer}>

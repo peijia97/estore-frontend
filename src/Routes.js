@@ -34,13 +34,7 @@ const Routes = () => {
         exact
         path={`/signup`}
       />
-      =
-      <RouteWithLayout
-        layout={MinimalLayout}
-        component={LoginView}
-        exact
-        path={`/login`}
-      />
+      <RouteWithoutLayout component={LoginView} exact path={`/login`} />
       <RouteWithLayout
         layout={MinimalLayout}
         component={ChoosePlanView}
