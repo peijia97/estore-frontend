@@ -93,7 +93,11 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none",
     alignItems: "center",
     lineHeight: 1.5,
-    marginBottom: "1rem"
+    marginBottom: "1rem",
+    "& svg": {
+      marginLeft: "0.3rem",
+      color: theme.palette.grey[600]
+    }
   },
   column1: { marginLeft: "8.5rem" }
 }));
