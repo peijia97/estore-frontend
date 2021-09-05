@@ -9,6 +9,11 @@ const useStyles = makeStyles(theme => ({
   root: {
     height: "100%",
     background: theme.palette.background.default
+  },
+  main: {
+    [theme.breakpoints.up("lg")]: {
+      paddingTop: "5rem"
+    }
   }
 }));
 
@@ -18,7 +23,7 @@ const Main = props => {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"), {
     defaultMatches: true
   });
 
@@ -32,7 +37,7 @@ const Main = props => {
     setOpenSidebar(false);
   };
 
-  const open = isMd ? false : openSidebar;
+  const open = isLg ? false : openSidebar;
 
   return (
     <div
@@ -42,7 +47,7 @@ const Main = props => {
     >
       <Topbar onSidebarOpen={handleSidebarOpen} />
       <Sidebar onClose={handleSidebarClose} open={open} variant="temporary" />
-      <main>{children}</main>
+      <main className={classes.main}>{children}</main>
       <Footer />
     </div>
   );

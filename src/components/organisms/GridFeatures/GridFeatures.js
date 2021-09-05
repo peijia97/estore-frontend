@@ -42,7 +42,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.125rem",
     fontWeight: "900"
   },
-  "grid-features__featureImage": { height: "20rem", width: "auto" }
+  "grid-features__featureImage": {
+    width: "100%",
+    height: "auto",
+    [theme.breakpoints.up("md")]: {
+      height: "20rem",
+      width: "auto"
+    }
+  }
 }));
 
 /**

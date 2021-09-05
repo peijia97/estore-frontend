@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core";
 import { Image } from "components/atoms";
 import { SectionHeader } from "components/molecules";
+import CheckRoundedIcon from "@material-ui/icons/CheckRounded";
 import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +21,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   linkText: { fontWeight: "900", textDecoration: "none" },
-  disclaimer: { width: "100%" }
+  disclaimer: { width: "100%", marginTop: "1rem" },
+  checkListContainer: {
+    display: "inline-flex",
+    alignItems: "center",
+    marginBottom: "1rem",
+    "&:first-child": { marginTop: "0.5rem" },
+    "& svg": { margin: "0 0.5rem" }
+  }
 }));
 
 const Hero = props => {
@@ -76,7 +84,34 @@ const Hero = props => {
             align="left"
             disableGutter
             titleVariant="h3"
-          />
+          >
+            <Grid container>
+              <Grid item xs={6}>
+                <div className={classes.checkListContainer}>
+                  <CheckRoundedIcon color="primary" />
+                  <Typography variant="body1">Lorem ipsum dolor sit</Typography>
+                </div>
+                <div className={classes.checkListContainer}>
+                  <CheckRoundedIcon color="primary" />
+                  <Typography variant="body1">Lorem ipsum dolor sit</Typography>
+                </div>
+                <div className={classes.checkListContainer}>
+                  <CheckRoundedIcon color="primary" />
+                  <Typography variant="body1">Lorem ipsum dolor sit</Typography>
+                </div>
+              </Grid>
+              <Grid item xs={6}>
+                <div className={classes.checkListContainer}>
+                  <CheckRoundedIcon color="primary" />
+                  <Typography variant="body1">Lorem ipsum dolor sit</Typography>
+                </div>
+                <div className={classes.checkListContainer}>
+                  <CheckRoundedIcon color="primary" />
+                  <Typography variant="body1">Lorem ipsum dolor sit</Typography>
+                </div>
+              </Grid>
+            </Grid>
+          </SectionHeader>
           <div className={classes.disclaimer}>
             <Typography variant="body1" component="span">
               Lorem ipsum

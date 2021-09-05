@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { Divider, Grid } from "@material-ui/core";
+import { Divider, Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, List, ListItem } from "@material-ui/core";
 import CustomTextField from "components/atoms/CustomTextField";
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 2)
   },
   extraMarginBottom: {
-    marginBottom: "6rem"
+    marginBottom: "7rem"
   },
   logoContainerItem: {
     paddingTop: 0
@@ -52,6 +52,29 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.grey[200],
     height: "0.25rem",
     marginBottom: "3rem"
+  },
+  fieldContainer: {
+    position: "relative",
+    padding: "0.3rem",
+    borderRadius: "50px",
+    boxShadow: "3px 3px 20px #0000001A"
+  },
+  ctaTextField: {
+    "& .MuiInputBase-root": {
+      background: "transparent",
+      border: `0.1rem solid ${theme.palette.common.white}`,
+      "& input": {
+        background: theme.palette.grey[100]
+      },
+      "&.Mui-focused": {
+        borderColor: theme.palette.primary.main
+      }
+    }
+  },
+  ctaButton: {
+    position: "absolute",
+    right: "0.3rem",
+    minWidth: "12rem"
   }
 }));
 
@@ -238,21 +261,35 @@ const Footer = props => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <CustomTextField
-              placeholder="Lorem Ipsum"
-              label="Lorem Ipsum"
-              variant="filled"
-              size="medium"
-              name="emailAddress"
-              fullWidth
-              // helperText={
-              //   hasError('firstName') ? formState.errors.firstName[0] : null
-              // }
-              // error={hasError('firstName')}
-              // onChange={handleChange}
-              // type="firstName"
-              // value={formState.values.firstName || ''}
-            />
+            <div className={classes.fieldContainer}>
+              <CustomTextField
+                placeholder="Lorem Ipsum"
+                label="Lorem Ipsum"
+                variant="filled"
+                size="medium"
+                name="emailAddress"
+                fullWidth
+                className={classes.ctaTextField}
+                // helperText={
+                //   hasError('emailAddress') ? formState.errors.emailAddress[0] : null
+                // }
+                // error={hasError('emailAddress')}
+                // onChange={handleChange}
+                // type="emailAddress"
+                // value={formState.values.emailAddress || ''}
+              />
+              <Button
+                size="large"
+                variant="contained"
+                color="secondary"
+                component="a"
+                target="blank"
+                href="#"
+                className={classes.ctaButton}
+              >
+                Get Started
+              </Button>
+            </div>
           </Grid>
         </Grid>
       </div>

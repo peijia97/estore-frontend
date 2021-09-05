@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     left: "5%",
     top: "1rem",
     [theme.breakpoints.up("md")]: {
-      left: "10%",
+      left: "5%",
       top: "3rem"
     },
     "& .MuiTypography-root": {

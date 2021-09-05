@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     right: "5%",
     top: "1rem",
     [theme.breakpoints.up("lg")]: {
-      left: "10%",
+      left: "5%",
       top: "auto",
       bottom: "3rem"
     }

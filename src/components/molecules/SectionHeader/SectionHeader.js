@@ -48,6 +48,7 @@ const SectionHeader = props => {
     labelProps,
     titleProps,
     subtitleProps,
+    children,
     ...rest
   } = props;
 
@@ -124,6 +125,7 @@ const SectionHeader = props => {
           </Typography>
         </Grid>
       )}
+      {children}
       {ctaGroup && ctaGroup.length && (
         <Grid item xs={12} className="section-header__cta-wrapper">
           <Grid
@@ -171,6 +173,10 @@ SectionHeader.propTypes = {
    * Subtitle of the section header
    */
   subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /**
+   * The children content of the section
+   */
+  children: PropTypes.node,
   /**
    * Label title of the section header
    */

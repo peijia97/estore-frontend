@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     top: "1rem",
     [theme.breakpoints.up("md")]: {
       right: "auto",
-      left: "10%",
+      left: "5%",
       top: "auto",
       bottom: "3rem"
     }
