@@ -28,15 +28,52 @@ const Routes = () => {
         layout={MainLayout}
         path={`/home`}
       />
-      <RouteWithoutLayout component={SignupView} exact path={`/signup`} />
-      <RouteWithoutLayout component={LoginView} exact path={`/login`} />
-      <RouteWithoutLayout component={ChoosePlanView} exact path={`/plan`} />
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={SignupView}
+        exact
+        path={`/signup`}
+      />
+      =
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={LoginView}
+        exact
+        path={`/login`}
+      />
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={ChoosePlanView}
+        exact
+        path={`/plan`}
+      />
       <RouteWithoutLayout component={PaymentView} exact path={`/payment`} />
-      <RouteWithoutLayout component={ChooseSetupView} exact path={`/setup`} />
-      <RouteWithoutLayout component={ChooseTypeView} exact path={`/type`} />
-      <RouteWithoutLayout component={Video1View} exact path={`/video1`} />
-      <RouteWithoutLayout component={Video2View} exact path={`/video2`} />
-      <RouteWithoutLayout
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={ChooseSetupView}
+        exact
+        path={`/setup`}
+      />
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={ChooseTypeView}
+        exact
+        path={`/type`}
+      />
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={Video1View}
+        exact
+        path={`/video1`}
+      />
+      <RouteWithLayout
+        layout={MinimalLayout}
+        component={Video2View}
+        exact
+        path={`/video2`}
+      />
+      <RouteWithLayout
+        layout={MinimalLayout}
         component={ChoosePlatformView}
         exact
         path={`/platform`}

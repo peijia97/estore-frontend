@@ -2,17 +2,11 @@ import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { colors, Toolbar } from "@material-ui/core";
-
-import { Image } from "components/atoms";
+import { Toolbar, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    boxShadow: "none",
-    background: theme.palette.white,
-    borderBottom: `1px solid ${colors.grey[200]}`
-  },
   toolbar: {
+    background: theme.palette.secondary.main,
     maxWidth: theme.layout.contentWidth,
     width: "100%",
     margin: "0 auto",
@@ -26,9 +20,12 @@ const useStyles = makeStyles(theme => ({
       height: 32
     }
   },
-  logoImage: {
-    width: "auto",
-    height: "100%"
+  logo: {
+    textDecoration: "none",
+    "& .MuiTypography-root": {
+      color: theme.palette.common.white,
+      fontWeight: 400
+    }
   }
 }));
 
@@ -40,13 +37,8 @@ const Topbar = props => {
   return (
     <Toolbar className={clsx(classes.toolbar, className)} {...rest}>
       <div className={classes.logoContainer}>
-        <a href="/" title="estore">
-          <Image
-            className={classes.logoImage}
-            src={`${process.env.PUBLIC_URL}/images/logos/logo.png`}
-            alt="estore-logo"
-            lazy={false}
-          />
+        <a href="/" title="estore" className={classes.logo}>
+          <Typography variant="h5">ESTORE</Typography>
         </a>
       </div>
     </Toolbar>

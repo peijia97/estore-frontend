@@ -36,9 +36,8 @@ const useStyles = makeStyles(theme => ({
     width: 120,
     height: 32
   },
-  logoImage: {
-    width: "auto",
-    height: "100%"
+  logo: {
+    textDecoration: "none"
   },
   footerTitle: {
     fontSize: "1rem"
@@ -69,13 +68,10 @@ const Footer = props => {
             <List disablePadding>
               <ListItem disableGutters className={classes.logoContainerItem}>
                 <div className={classes.logoContainer}>
-                  <a href="/" title="estore">
-                    <Image
-                      className={classes.logoImage}
-                      src={`${process.env.PUBLIC_URL}/images/logos/logo.png`}
-                      alt="estore-logo"
-                      lazy={false}
-                    />
+                  <a href="/" title="estore" className={classes.logo}>
+                    <Typography variant="h5" color="primary">
+                      ESTORE
+                    </Typography>
                   </a>
                 </div>
               </ListItem>

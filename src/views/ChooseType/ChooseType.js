@@ -11,26 +11,13 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.secondary.main,
     position: "relative",
     overflow: "hidden",
-    minHeight: "100vh"
+    minHeight: `calc(100vh - ${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px)`
   },
   section: {
     maxWidth: "45rem",
     position: "relative",
     [theme.breakpoints.up("lg")]: {
       maxWidth: "80rem"
-    }
-  },
-  logo: {
-    position: "absolute",
-    left: "5%",
-    top: "1rem",
-    [theme.breakpoints.up("md")]: {
-      left: "10%",
-      top: "3rem"
-    },
-    "& .MuiTypography-root": {
-      fontWeight: 400,
-      color: theme.palette.common.white
     }
   },
   back: {
@@ -53,10 +40,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    justifyContent: "center",
-    [theme.breakpoints.up("lg")]: {
-      marginTop: "3rem"
-    }
+    justifyContent: "center"
   },
   title: {
     color: theme.palette.common.white,
@@ -116,9 +100,6 @@ const ChooseType = () => {
 
   return (
     <div className={classes.root}>
-      <ButtonBase href="/home" className={classes.logo}>
-        <Typography variant="h5">ESTORE</Typography>
-      </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6}>

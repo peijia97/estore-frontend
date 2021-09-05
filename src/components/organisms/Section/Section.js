@@ -1,27 +1,27 @@
-import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: theme.layout.contentWidth,
-    width: '100%',
-    margin: '0 auto',
+    width: "100%",
+    margin: "0 auto",
     padding: theme.spacing(6, 2),
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(12, 2),
-    },
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(8, 2)
+    }
   },
   fullWidth: {
-    maxWidth: '100%',
+    maxWidth: "100%"
   },
   disablePadding: {
-    padding: 0,
+    padding: 0
   },
   narrow: {
-    maxWidth: 800,
-  },
+    maxWidth: 800
+  }
 }));
 
 /**
@@ -45,13 +45,13 @@ const Section = props => {
   return (
     <section
       className={clsx(
-        'section',
+        "section",
         classes.root,
         fullWidth ? classes.fullWidth : {},
         narrow ? classes.narrow : {},
         disablePadding ? classes.disablePadding : {},
         alternate ? classes.alternate : {},
-        className,
+        className
       )}
       {...rest}
     >
@@ -80,7 +80,7 @@ Section.propTypes = {
   /**
    * Should the section render with no padding
    */
-  disablePadding: PropTypes.bool,
+  disablePadding: PropTypes.bool
 };
 
 export default Section;

@@ -12,8 +12,6 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import { Image } from "components/atoms";
-
 const useStyles = makeStyles(theme => ({
   root: {},
   flexGrow: {
@@ -62,9 +60,8 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: "1rem"
     }
   },
-  logoImage: {
-    width: "auto",
-    height: "100%"
+  logo: {
+    textDecoration: "none"
   }
 }));
 
@@ -76,13 +73,10 @@ const Topbar = props => {
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
       <div className={classes.logoContainer}>
-        <a href="/" title="estore">
-          <Image
-            className={classes.logoImage}
-            src={`${process.env.PUBLIC_URL}/images/logos/logo.png`}
-            alt="estore-logo"
-            lazy={false}
-          />
+        <a href="/" title="estore" className={classes.logo}>
+          <Typography variant="h5" color="primary">
+            ESTORE
+          </Typography>
         </a>
       </div>
       <Hidden smDown>

@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
-import { Topbar } from './components';
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
+import { Topbar } from "./components";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
+    background: theme.palette.secondary.main
   },
   content: {
-    height: '100%',
-  },
+    height: "100%"
+  }
 }));
 
 const Minimal = props => {
@@ -21,7 +21,6 @@ const Minimal = props => {
   return (
     <div className={clsx(classes.root, className)}>
       <Topbar />
-      <Divider />
       <main className={classes.content}>{children}</main>
     </div>
   );
@@ -29,7 +28,7 @@ const Minimal = props => {
 
 Minimal.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default Minimal;

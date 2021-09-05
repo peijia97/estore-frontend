@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Section } from "components/organisms";
-import { Typography, Grid, Button, ButtonBase } from "@material-ui/core";
+import { Typography, Grid, Button } from "@material-ui/core";
 import StripesDivider from "components/atoms/StripesDivider";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.secondary.main,
     position: "relative",
     overflow: "hidden",
-    minHeight: "100vh"
+    minHeight: `calc(100vh - ${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px)`
   },
   logo: {
     position: "absolute",
@@ -48,10 +48,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     // minHeight: `calc(100vh - ${theme.mixins.toolbar['@media (min-width:600px)'].minHeight}px)`,
     maxWidth: "35rem",
-    margin: `0 auto`,
-    [theme.breakpoints.up("lg")]: {
-      marginTop: "3rem"
-    }
+    margin: `0 auto`
   },
   title: {
     color: theme.palette.common.white,
@@ -145,9 +142,6 @@ const ChooseSetup = () => {
 
   return (
     <div className={classes.root}>
-      <ButtonBase href="/home" className={classes.logo}>
-        <Typography variant="h5">ESTORE</Typography>
-      </ButtonBase>
       <Section className={classes.section}>
         <Grid container>
           <Grid item xs={12} lg={6}>

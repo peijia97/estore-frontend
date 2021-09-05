@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.common.white,
     position: "relative",
     overflow: "hidden",
-    minHeight: "100vh"
+    minHeight: `calc(100vh - ${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px)`
   },
   logo: {
     position: "absolute",
