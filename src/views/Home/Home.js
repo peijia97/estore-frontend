@@ -4,6 +4,7 @@ import { Divider, ButtonBase, Button } from "@material-ui/core";
 import { Section } from "components/organisms";
 import { Image } from "components/atoms";
 import { Hero, Hub, Features, Testimonials } from "./components";
+import { setVideoModalState } from "states/videoModalState";
 import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
 import clsx from "clsx";
 
@@ -92,6 +93,10 @@ const Home = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDir]);
 
+  const handleOpenVideo = () => {
+    setVideoModalState({ show: true });
+  };
+
   return (
     <div className={classes.root}>
       <Section className={classes.pagePaddingTop}>
@@ -126,7 +131,7 @@ const Home = () => {
           color="secondary"
           className={classes.btnCta}
           startIcon={<PlayCircleOutlineRoundedIcon />}
-          href="#"
+          onClick={handleOpenVideo}
         >
           LOREM IPSUM
         </Button>

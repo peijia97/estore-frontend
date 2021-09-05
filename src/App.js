@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Paper, CssBaseline } from "@material-ui/core";
+import VideoModal from "components/molecules/VideoModal/VideoModal";
 import AOS from "aos";
 
 import theme from "./theme";
@@ -42,6 +43,7 @@ const App = () => {
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper>
+        <VideoModal />
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes />
         </BrowserRouter>

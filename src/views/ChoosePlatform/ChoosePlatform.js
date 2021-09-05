@@ -190,7 +190,7 @@ const ChoosePlatform = () => {
           variant="contained"
           size="large"
           className={classes.btnContinue}
-          href="/platform"
+          href="/video1"
         >
           CONTINUE
         </Button>
