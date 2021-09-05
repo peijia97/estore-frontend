@@ -132,7 +132,7 @@ const useStyles = makeStyles(theme => ({
     padding: "1rem"
   },
   btnStart: {
-    minWidth: "11rem"
+    minWidth: "14rem"
   }
 }));
 

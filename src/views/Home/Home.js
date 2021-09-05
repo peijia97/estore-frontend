@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
   const classes = useStyles();
 
-  const [scrollDir, setScrollDir] = useState("down");
+  const [scrollDir, setScrollDir] = useState("up");
 
   useEffect(() => {
     const threshold = 0;

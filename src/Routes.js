@@ -13,6 +13,8 @@ import {
   ChooseSetup as ChooseSetupView,
   ChooseType as ChooseTypeView,
   ChoosePlatform as ChoosePlatformView,
+  Video1 as Video1View,
+  Video2 as Video2View,
   NotFound as NotFoundView
 } from "./views";
 
@@ -32,6 +34,8 @@ const Routes = () => {
       <RouteWithoutLayout component={PaymentView} exact path={`/payment`} />
       <RouteWithoutLayout component={ChooseSetupView} exact path={`/setup`} />
       <RouteWithoutLayout component={ChooseTypeView} exact path={`/type`} />
+      <RouteWithoutLayout component={Video1View} exact path={`/video1`} />
+      <RouteWithoutLayout component={Video2View} exact path={`/video2`} />
       <RouteWithoutLayout
         component={ChoosePlatformView}
         exact

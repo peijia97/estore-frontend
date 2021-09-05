@@ -84,10 +84,6 @@ const useStyles = makeStyles(theme => ({
       }
     }
   },
-  btnContinue: {
-    minWidth: "11rem",
-    marginTop: "1rem"
-  },
   btnContainer: {
     width: "100%",
     border: "0.15rem solid white",

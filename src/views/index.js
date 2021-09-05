@@ -7,3 +7,5 @@ export { default as Payment } from "./Payment";
 export { default as ChooseSetup } from "./ChooseSetup";
 export { default as ChooseType } from "./ChooseType";
 export { default as ChoosePlatform } from "./ChoosePlatform";
+export { default as Video1 } from "./Video1";
+export { default as Video2 } from "./Video2";
